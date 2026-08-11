@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PZ Mod Grabber</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>PZ Mod Grabber</h1>
+    <p class="sub">Scan a Steam Workshop collection, keep a maintainable mod list, reorder it, copy it into your server config.</p>
+  </header>
+
+  <section class="scan-box">
+    <input id="collectionUrl" type="text" placeholder="Collection URL or just the numeric id, e.g. https://steamcommunity.com/sharedfiles/filedetails/?id=XXXXXXXXX" autocomplete="off">
+    <button id="scanBtn">Scan collection</button>
+  </section>
+  <div id="status" class="status"></div>
+
+  <section class="list-header">
+    <h2>Mod list <span id="count" class="count"></span></h2>
+    <div class="list-header-actions">
+      <label class="build-toggle">
+        <input type="checkbox" id="build42Toggle" checked>
+        Build 42 format (\ prefix)
+      </label>
+      <button id="clearBtn" class="danger-link">Clear all</button>
+    </div>
+  </section>
+
+  <ul id="modList" class="mod-list"></ul>
+  <p id="emptyHint" class="empty-hint">No mods yet — paste a Workshop collection URL above and hit "Scan collection".</p>
+
+  <section class="output">
+    <div class="output-row">
+      <label>Mods=</label>
+      <textarea id="modsOut" rows="3" readonly></textarea>
+      <button data-copy="modsOut" class="copy-btn">Copy</button>
+    </div>
+    <div class="output-row">
+      <label>WorkshopItems=</label>
+      <textarea id="workshopOut" rows="3" readonly></textarea>
+      <button data-copy="workshopOut" class="copy-btn">Copy</button>
+    </div>
+    <div class="output-row" id="mapsRow" hidden>
+      <label>Map=</label>
+      <textarea id="mapsOut" rows="1" readonly></textarea>
+      <button data-copy="mapsOut" class="copy-btn">Copy</button>
+    </div>
+  </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
