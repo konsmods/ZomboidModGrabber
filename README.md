@@ -8,7 +8,9 @@ for every item, and gives you a UI to reorder that list and copy the
 Compared to a one-off browser console script, this keeps a persistent list:
 re-scanning the same (or a different) collection **adds new mods to the
 list without touching or duplicating what's already there**, and load order
-you've arranged by hand survives a rescan.
+you've arranged by hand survives a rescan. Each collection you scan is
+tracked separately, so you can see which mods came from which collection,
+reorder the collections, or delete a whole collection at once.
 
 ## How it works
 
@@ -25,7 +27,8 @@ you've arranged by hand survives a rescan.
 - Everything is saved to `data/mods.json`. That file *is* your list — back
   it up / commit it / edit it by hand if you want.
 - The web UI is just a thin client over a small JSON API (`/api/mods`,
-  `/api/scan`, `/api/reorder`, `/api/mods/<id>`, `/api/clear`).
+  `/api/scan`, `/api/reorder`, `/api/reorder-collections`,
+  `/api/mods/<id>`, `/api/collections/<id>`, `/api/clear`).
 - No API key needed. These two `ISteamRemoteStorage` endpoints are public
   and don't require auth (they're what SteamCMD and most Workshop tools use
   under the hood). If Valve ever changes that, set a `STEAM_API_KEY`
@@ -48,9 +51,11 @@ Then open http://127.0.0.1:5050 in your browser.
 
 1. Paste a Workshop **collection** URL (`.../sharedfiles/filedetails/?id=...`
    pointing at a collection, not a single mod) and hit **Scan collection**.
-2. New mods appear at the bottom of the list. Drag the ⠿ handle to reorder —
-   load order matters in PZ for some mods (frameworks before the mods that
-   need them, tile packs before maps that use them, etc.).
+2. New mods appear at the bottom of their collection. Drag the ⠿ handle to
+   reorder mods within a collection, and drag a collection to change the
+   order the collections appear in (and are output) — load order matters in
+   PZ for some mods (frameworks before the mods that need them, tile packs
+   before maps that use them, etc.).
 3. If a mod shows "no Mod ID found" or "N mod ids — verify", open its
    Workshop page, check the description, and edit the Mod ID field directly
    in the list (it saves on blur/Enter).
@@ -60,7 +65,10 @@ Then open http://127.0.0.1:5050 in your browser.
    into your server's `.ini`. A `Map=` line appears too if any scanned mod
    declares a map folder.
 6. Re-run a scan on the same collection any time you add mods to it on
-   Steam — only the new ones get appended, nothing gets reshuffled.
+   Steam — only the new ones get appended, nothing gets reshuffled. Scan a
+   second collection and its mods are added under a new heading; delete a
+   collection with its ✕ button to remove it (and any mods that only live
+   there) all at once.
 
 ## Notes / limitations
 

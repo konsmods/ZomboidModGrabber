@@ -54,6 +54,12 @@ class ScannedMod:
     error: str = ""
 
 
+@dataclass
+class ScanResult:
+    name: str
+    mods: list[ScannedMod]
+
+
 def _session() -> requests.Session:
     s = requests.Session()
     s.headers.update({"User-Agent": USER_AGENT})
@@ -83,6 +89,10 @@ def extract_collection_id(url_or_id: str) -> str:
     )
 
 
+def canonical_collection_url(url_or_id: str) -> str:
+    return f"https://steamcommunity.com/sharedfiles/filedetails/?id={extract_collection_id(url_or_id)}"
+
+
 def _post(session: requests.Session, path: str, data: dict) -> dict:
     if STEAM_API_KEY:
         data = {**data, "key": STEAM_API_KEY}
@@ -98,7 +108,7 @@ def _post(session: requests.Session, path: str, data: dict) -> dict:
         raise ScrapeError(f"Steam returned something that wasn't JSON: {e}") from e
 
 
-def _get_collection_children(collection_id: str, session: requests.Session) -> list[str]:
+def _get_collection_details(collection_id: str, session: requests.Session) -> tuple[list[str], str]:
     payload = _post(
         session,
         "/ISteamRemoteStorage/GetCollectionDetails/v1/",
@@ -120,7 +130,7 @@ def _get_collection_children(collection_id: str, session: requests.Session) -> l
     ids = _dedupe(c["publishedfileid"] for c in children if "publishedfileid" in c)
     if not ids:
         raise ScrapeError("That collection doesn't seem to contain any items.")
-    return ids
+    return ids, entry.get("title", "")
 
 
 def _get_file_details(ids: list[str], session: requests.Session) -> dict[str, dict]:
@@ -166,16 +176,17 @@ def _parse_details(workshop_id: str, item: dict | None) -> ScannedMod:
     return ScannedMod(workshop_id=workshop_id, name=name, mod_ids=mod_ids, maps=maps)
 
 
-def scan_collection(collection_url: str, max_workers: int = 8) -> list[ScannedMod]:
+def scan_collection(collection_url: str, max_workers: int = 8) -> ScanResult:
     """max_workers kept for API compatibility with the caller; unused now that
     fetching is batched rather than one request per mod."""
     session = _session()
     collection_id = extract_collection_id(collection_url)
-    ordered_ids = _get_collection_children(collection_id, session)
+    ordered_ids, name = _get_collection_details(collection_id, session)
 
     details_by_id: dict[str, dict] = {}
     for i in range(0, len(ordered_ids), BATCH_SIZE):
         batch = ordered_ids[i : i + BATCH_SIZE]
         details_by_id.update(_get_file_details(batch, session))
 
-    return [_parse_details(wsid, details_by_id.get(wsid)) for wsid in ordered_ids]
+    mods = [_parse_details(wsid, details_by_id.get(wsid)) for wsid in ordered_ids]
+    return ScanResult(name=name, mods=mods)

@@ -24,13 +24,14 @@ def scan():
         return jsonify({"error": "Missing collection URL."}), 400
 
     try:
-        scanned = scan_collection(url)
+        result = scan_collection(url)
     except ScrapeError as e:
         return jsonify({"error": str(e)}), 400
     except Exception as e:  # noqa: BLE001 - surface any fetch/parsing failure to the UI
         return jsonify({"error": f"Scan failed: {e}"}), 502
 
-    data, newly_added = store.merge_scanned(scanned, url)
+    scanned = result.mods
+    data, newly_added = store.merge_scanned(url, result.name, scanned)
     failed = [m.workshop_id for m in scanned if not m.ok]
     no_mod_id = [m.workshop_id for m in scanned if m.ok and not m.mod_ids]
     return jsonify(
@@ -48,9 +49,22 @@ def scan():
 def reorder():
     body = request.get_json(force=True, silent=True) or {}
     order = body.get("order")
+    collection = body.get("collection")
+    if not isinstance(order, list) or not isinstance(collection, str):
+        return jsonify({"error": "Expected {collection: <id>, order: [workshopId, ...]}"}), 400
+    try:
+        return jsonify(store.reorder_collection(collection, order))
+    except KeyError:
+        return jsonify({"error": "Unknown collection."}), 404
+
+
+@app.post("/api/reorder-collections")
+def reorder_collections():
+    body = request.get_json(force=True, silent=True) or {}
+    order = body.get("order")
     if not isinstance(order, list):
-        return jsonify({"error": "Expected {order: [workshopId, ...]}"}), 400
-    return jsonify(store.reorder(order))
+        return jsonify({"error": "Expected {order: [collectionId, ...]}"}), 400
+    return jsonify(store.reorder_collections(order))
 
 
 @app.post("/api/mods/<workshop_id>")
@@ -68,6 +82,14 @@ def edit_mod(workshop_id):
 @app.delete("/api/mods/<workshop_id>")
 def delete_mod(workshop_id):
     return jsonify(store.remove(workshop_id))
+
+
+@app.delete("/api/collections/<collection_id>")
+def delete_collection(collection_id):
+    try:
+        return jsonify(store.delete_collection(collection_id))
+    except KeyError:
+        return jsonify({"error": "Unknown collection."}), 404
 
 
 @app.post("/api/clear")

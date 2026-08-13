@@ -3,7 +3,7 @@ const el = (id) => document.getElementById(id);
 const urlInput = el("collectionUrl");
 const scanBtn = el("scanBtn");
 const statusEl = el("status");
-const listEl = el("modList");
+const boxesEl = el("collectionBoxes");
 const emptyHint = el("emptyHint");
 const countEl = el("count");
 const modsOut = el("modsOut");
@@ -13,8 +13,25 @@ const mapsRow = el("mapsRow");
 const build42Toggle = el("build42Toggle");
 const clearBtn = el("clearBtn");
 
-let state = { order: [], mods: {} };
-let sortable = null;
+let state = { collectionOrder: [], collections: {}, mods: {} };
+let boxSortable = null;
+let modSortables = [];
+
+const COLLAPSE_KEY = "pz-mod-grabber.collapsed";
+let collapsed = loadCollapsed();
+
+function loadCollapsed() {
+  try {
+    return new Set(JSON.parse(localStorage.getItem(COLLAPSE_KEY) || "[]"));
+  } catch {
+    return new Set();
+  }
+}
+function saveCollapsed() {
+  try {
+    localStorage.setItem(COLLAPSE_KEY, JSON.stringify([...collapsed]));
+  } catch { /* ignore */ }
+}
 
 function setStatus(msg, kind) {
   statusEl.textContent = msg || "";
@@ -33,60 +50,147 @@ async function api(path, opts) {
   return data;
 }
 
+function collectionLabel(col) {
+  return col.name || `Collection ${col.id}`;
+}
+
 function render() {
-  listEl.innerHTML = "";
-  const ids = state.order.filter((id) => state.mods[id]);
-  countEl.textContent = ids.length ? `(${ids.length})` : "";
-  emptyHint.hidden = ids.length > 0;
+  renderBoxes();
+}
 
-  for (const id of ids) {
-    const mod = state.mods[id];
-    const li = document.createElement("li");
-    li.className = "mod-item";
-    li.dataset.id = id;
-    if (!mod.ok) li.classList.add("failed");
-    else if (!mod.modIds || mod.modIds.length === 0) li.classList.add("no-modid");
+function renderModItem(id) {
+  const mod = state.mods[id];
+  const li = document.createElement("li");
+  li.className = "mod-item";
+  li.dataset.id = id;
+  if (!mod.ok) li.classList.add("failed");
+  else if (!mod.modIds || mod.modIds.length === 0) li.classList.add("no-modid");
 
-    const metaBits = [`<span class="wsid">${id}</span>`];
-    if (!mod.ok) {
-      metaBits.push(`<span class="fail-tag">fetch failed</span>`);
-    } else if (!mod.modIds || mod.modIds.length === 0) {
-      metaBits.push(`<span class="warn-tag">no Mod ID found — check manually</span>`);
-    } else if (mod.modIds.length > 1) {
-      metaBits.push(`<span class="warn-tag">${mod.modIds.length} mod ids — verify</span>`);
-    }
-
-    li.innerHTML = `
-      <span class="drag-handle" title="Drag to reorder">⠿</span>
-      <div class="mod-main">
-        <div class="mod-name" title="${escapeAttr(mod.name || "")}">${escapeHtml(mod.name || "(untitled)")}</div>
-        <div class="mod-meta">${metaBits.join("")}</div>
-      </div>
-      <input class="modid-input" type="text" value="${escapeAttr((mod.modIds || []).join(";"))}" placeholder="ModIdA;ModIdB">
-      <button class="remove-btn" title="Remove">✕</button>
-    `;
-
-    const input = li.querySelector(".modid-input");
-    input.addEventListener("change", () => onEditModIds(id, input.value));
-
-    li.querySelector(".remove-btn").addEventListener("click", () => onRemove(id));
-
-    listEl.appendChild(li);
+  const metaBits = [`<span class="wsid">${id}</span>`];
+  if (!mod.ok) {
+    metaBits.push(`<span class="fail-tag">fetch failed</span>`);
+  } else if (!mod.modIds || mod.modIds.length === 0) {
+    metaBits.push(`<span class="warn-tag">no Mod ID found — check manually</span>`);
+  } else if (mod.modIds.length > 1) {
+    metaBits.push(`<span class="warn-tag">${mod.modIds.length} mod ids — verify</span>`);
   }
 
-  if (!sortable) {
-    sortable = new Sortable(listEl, {
+  li.innerHTML = `
+    <span class="drag-handle" title="Drag to reorder">⠿</span>
+    <div class="mod-main">
+      <div class="mod-name" title="${escapeAttr(mod.name || "")}">${escapeHtml(mod.name || "(untitled)")}</div>
+      <div class="mod-meta">${metaBits.join("")}</div>
+    </div>
+    <input class="modid-input" type="text" value="${escapeAttr((mod.modIds || []).join(";"))}" placeholder="ModIdA;ModIdB">
+    <button class="remove-btn" title="Remove">✕</button>
+  `;
+
+  li.querySelector(".modid-input").addEventListener("change", (e) => onEditModIds(id, e.target.value));
+  li.querySelector(".remove-btn").addEventListener("click", () => onRemove(id));
+
+  return li;
+}
+
+function renderBoxes() {
+  boxesEl.innerHTML = "";
+  modSortables.forEach((s) => s.destroy());
+  modSortables = [];
+
+  const cids = state.collectionOrder.filter((c) => state.collections[c]);
+  let total = 0;
+
+  for (const cid of cids) {
+    const col = state.collections[cid];
+    const wsids = (col.order || []).filter((id) => state.mods[id]);
+    total += wsids.length;
+
+    const box = document.createElement("div");
+    box.className = "collection-box";
+    box.dataset.collection = cid;
+    if (collapsed.has(cid)) box.classList.add("collapsed");
+
+    const header = document.createElement("div");
+    header.className = "box-header";
+    header.innerHTML = `
+      <span class="drag-handle collection-drag" title="Drag to reorder collections">⠿</span>
+      <span class="collapse-toggle">${collapsed.has(cid) ? "▸" : "▾"}</span>
+      <div class="box-title">
+        <div class="collection-name" title="${escapeAttr(col.url || "")}">${escapeHtml(collectionLabel(col))}</div>
+        <div class="collection-meta">
+          <span class="wsid">${escapeHtml(cid)}</span>
+          <span>${wsids.length} mods</span>
+        </div>
+      </div>
+      <div class="box-actions">
+        <button class="refresh-btn" title="Refresh collection">↻</button>
+        <button class="remove-btn" title="Delete collection">✕</button>
+      </div>
+    `;
+    header.addEventListener("click", (e) => {
+      if (e.target.closest("button") || e.target.closest(".collection-drag")) return;
+      onToggleCollection(cid);
+    });
+    header.querySelector(".refresh-btn").addEventListener("click", () => onRefreshCollection(cid));
+    header.querySelector(".remove-btn").addEventListener("click", () => onDeleteCollection(cid));
+    box.appendChild(header);
+
+    const ul = document.createElement("ul");
+    ul.className = "mod-list";
+    ul.dataset.collection = cid;
+    for (const id of wsids) ul.appendChild(renderModItem(id));
+    box.appendChild(ul);
+    boxesEl.appendChild(box);
+
+    modSortables.push(new Sortable(ul, {
       handle: ".drag-handle",
       animation: 150,
-      onEnd: onReorder,
-    });
+      onEnd: () => onReorder(cid, ul),
+    }));
   }
 
+  countEl.textContent = total ? `(${total})` : "";
+  emptyHint.hidden = cids.length > 0;
+
   buildOutputs();
+
+  if (!boxSortable) {
+    boxSortable = new Sortable(boxesEl, {
+      handle: ".collection-drag",
+      animation: 150,
+      onEnd: onReorderCollections,
+    });
+  }
+}
+
+function onToggleCollection(cid) {
+  if (collapsed.has(cid)) collapsed.delete(cid);
+  else collapsed.add(cid);
+  saveCollapsed();
+  const box = boxesEl.querySelector(`.collection-box[data-collection="${cid}"]`);
+  if (box) {
+    box.classList.toggle("collapsed", collapsed.has(cid));
+    box.querySelector(".collapse-toggle").textContent = collapsed.has(cid) ? "▸" : "▾";
+  }
+}
+
+function orderedIds() {
+  const seen = new Set();
+  const ids = [];
+  const cids = state.collectionOrder.filter((c) => state.collections[c]);
+  for (const cid of cids) {
+    const col = state.collections[cid];
+    for (const id of col.order || []) {
+      if (state.mods[id] && !seen.has(id)) {
+        seen.add(id);
+        ids.push(id);
+      }
+    }
+  }
+  return ids;
 }
 
 function buildOutputs() {
-  const ids = state.order.filter((id) => state.mods[id]);
+  const ids = orderedIds();
   const useB42 = build42Toggle.checked;
 
   const modIdLines = [];
@@ -122,14 +226,9 @@ function escapeHtml(s) {
 }
 function escapeAttr(s) { return escapeHtml(s); }
 
-async function onScan() {
-  const url = urlInput.value.trim();
-  if (!url) {
-    setStatus("Paste a Steam Workshop collection URL first.", "error");
-    return;
-  }
+async function scanUrl(url, statusMsg) {
   scanBtn.disabled = true;
-  setStatus("Scanning collection…");
+  setStatus(statusMsg || "Scanning collection…");
   try {
     const res = await api("/api/scan", { method: "POST", body: JSON.stringify({ url }) });
     state = res.data;
@@ -146,12 +245,38 @@ async function onScan() {
   }
 }
 
-async function onReorder() {
-  const order = [...listEl.children].map((li) => li.dataset.id);
-  state.order = order;
+async function onScan() {
+  const url = urlInput.value.trim();
+  if (!url) {
+    setStatus("Paste a Steam Workshop collection URL first.", "error");
+    return;
+  }
+  await scanUrl(url);
+}
+
+async function onRefreshCollection(cid) {
+  const col = state.collections[cid];
+  if (!col || !col.url) return;
+  await scanUrl(col.url, `Scanning "${collectionLabel(col)}"…`);
+}
+
+async function onReorder(cid, ul) {
+  const order = [...ul.children].map((li) => li.dataset.id);
+  state.collections[cid].order = order;
   buildOutputs();
   try {
-    await api("/api/reorder", { method: "POST", body: JSON.stringify({ order }) });
+    await api("/api/reorder", { method: "POST", body: JSON.stringify({ collection: cid, order }) });
+  } catch (e) {
+    setStatus(e.message, "error");
+  }
+}
+
+async function onReorderCollections() {
+  const order = [...boxesEl.children].map((b) => b.dataset.collection);
+  state.collectionOrder = order;
+  buildOutputs();
+  try {
+    await api("/api/reorder-collections", { method: "POST", body: JSON.stringify({ order }) });
   } catch (e) {
     setStatus(e.message, "error");
   }
@@ -177,8 +302,21 @@ async function onRemove(id) {
   }
 }
 
+async function onDeleteCollection(cid) {
+  const col = state.collections[cid];
+  const label = collectionLabel(col);
+  if (!confirm(`Delete collection "${label}" and all of its mods?\n\nThis only removes mods that don't belong to any other collection. This can't be undone.`)) return;
+  try {
+    state = await api(`/api/collections/${cid}`, { method: "DELETE" });
+    render();
+    setStatus(`Deleted collection "${label}".`);
+  } catch (e) {
+    setStatus(e.message, "error");
+  }
+}
+
 async function onClearAll() {
-  if (!confirm("Remove every mod from the list? This can't be undone.")) return;
+  if (!confirm("Remove every collection and mod from the list? This can't be undone.")) return;
   try {
     state = await api("/api/clear", { method: "POST" });
     render();
