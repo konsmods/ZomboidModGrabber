@@ -25,9 +25,10 @@ Shape of data/mods.json:
   }
 }
 
-Re-scanning a collection never deletes or reorders what you already have -
-it only updates the name/modIds/maps of items you already saved, and adds
-newly-found items to the end of that collection's "order". Collections are
+Re-scanning a collection updates the name/modIds/maps of items you already
+saved, adds newly-found items to the end of that collection's "order", and
+removes items that no longer exist in the collection on Steam. Your own
+order is always preserved (Steam's ordering is ignored). Collections are
 reorderable and can be deleted as a whole from the UI.
 """
 
@@ -83,6 +84,7 @@ def _migrate(data: dict) -> dict:
         mod.setdefault("collectionIds", [])
         if cid not in mod["collectionIds"]:
             mod["collectionIds"].append(cid)
+        mod.setdefault("disabledModIds", [])
 
     data["collections"] = collections
     data["collectionOrder"] = collection_order
@@ -119,10 +121,12 @@ def merge_scanned(collection_url: str, collection_name: str, scanned_mods) -> tu
     """Merge freshly scanned mods into the store, grouped under their collection.
 
     Existing entries: name/modIds/maps/ok/error refreshed in place. New entries
-    are appended to the end of the collection's "order". Re-scanning a collection
-    never deletes or reorders what's already saved.
+    are appended to the end of the collection's "order" (Steam's order is ignored,
+    so our established order is preserved). Mods that disappeared from the
+    collection on Steam are removed; if a removed mod belongs to no other
+    collection, it is dropped entirely.
 
-    Returns (updated_store, list_of_newly_added_workshop_ids).
+    Returns (updated_store, list_of_newly_added_workshop_ids, list_of_removed_workshop_ids).
     """
     with _lock:
         data = load()
@@ -143,6 +147,24 @@ def merge_scanned(collection_url: str, collection_name: str, scanned_mods) -> tu
             if collection_name:
                 collection["name"] = collection_name
 
+        scanned_ids = {mod.workshop_id for mod in scanned_mods}
+
+        # Drop mods that were removed from the collection on Steam, keeping
+        # our established order for everything that remains.
+        removed = []
+        kept = []
+        for wsid in collection["order"]:
+            if wsid in scanned_ids:
+                kept.append(wsid)
+                continue
+            removed.append(wsid)
+            mod = data["mods"].get(wsid)
+            if mod:
+                mod["collectionIds"] = [c for c in mod.get("collectionIds", []) if c != cid]
+                if not mod["collectionIds"]:
+                    data["mods"].pop(wsid, None)
+        collection["order"] = kept
+
         newly_added = []
 
         for mod in scanned_mods:
@@ -158,6 +180,7 @@ def merge_scanned(collection_url: str, collection_name: str, scanned_mods) -> tu
             }
             if existing is None:
                 entry["collectionIds"] = [cid]
+                entry["disabledModIds"] = []
                 data["mods"][wsid] = entry
                 collection["order"].append(wsid)
                 newly_added.append(wsid)
@@ -167,6 +190,7 @@ def merge_scanned(collection_url: str, collection_name: str, scanned_mods) -> tu
                 # entered some, preserve the manual values.
                 if not entry["modIds"] and existing.get("modIds"):
                     del entry["modIds"]
+                existing.setdefault("disabledModIds", [])
                 existing.update(entry)
                 existing.setdefault("collectionIds", [])
                 if cid not in existing["collectionIds"]:
@@ -175,7 +199,7 @@ def merge_scanned(collection_url: str, collection_name: str, scanned_mods) -> tu
                     collection["order"].append(wsid)
 
         save(data)
-        return data, newly_added
+        return data, newly_added, removed
 
 
 def reorder_collections(new_order: list[str]) -> dict:
@@ -236,7 +260,7 @@ def remove(workshop_id: str) -> dict:
         return data
 
 
-def update_mod(workshop_id: str, mod_ids: list[str] | None = None, name: str | None = None) -> dict:
+def update_mod(workshop_id: str, mod_ids: list[str] | None = None, name: str | None = None, disabled_mod_ids: list[str] | None = None) -> dict:
     with _lock:
         data = load()
         entry = data["mods"].get(workshop_id)
@@ -246,6 +270,8 @@ def update_mod(workshop_id: str, mod_ids: list[str] | None = None, name: str | N
             entry["modIds"] = mod_ids
         if name is not None:
             entry["name"] = name
+        if disabled_mod_ids is not None:
+            entry["disabledModIds"] = disabled_mod_ids
         save(data)
         return data
 

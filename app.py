@@ -31,7 +31,7 @@ def scan():
         return jsonify({"error": f"Scan failed: {e}"}), 502
 
     scanned = result.mods
-    data, newly_added = store.merge_scanned(url, result.name, scanned)
+    data, newly_added, removed = store.merge_scanned(url, result.name, scanned)
     failed = [m.workshop_id for m in scanned if not m.ok]
     no_mod_id = [m.workshop_id for m in scanned if m.ok and not m.mod_ids]
     return jsonify(
@@ -39,6 +39,7 @@ def scan():
             "data": data,
             "scannedCount": len(scanned),
             "newlyAdded": newly_added,
+            "removed": removed,
             "failed": failed,
             "noModId": no_mod_id,
         }
@@ -72,8 +73,9 @@ def edit_mod(workshop_id):
     body = request.get_json(force=True, silent=True) or {}
     mod_ids = body.get("modIds")
     name = body.get("name")
+    disabled_mod_ids = body.get("disabledModIds")
     try:
-        data = store.update_mod(workshop_id, mod_ids=mod_ids, name=name)
+        data = store.update_mod(workshop_id, mod_ids=mod_ids, name=name, disabled_mod_ids=disabled_mod_ids)
     except KeyError:
         return jsonify({"error": "Unknown workshop id."}), 404
     return jsonify(data)

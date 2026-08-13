@@ -11,7 +11,8 @@
       "error": "",
       "collectionIds": [
         "3782668714"
-      ]
+      ],
+      "disabledModIds": []
     },
     "3268487204": {
       "workshopId": "3268487204",
@@ -24,7 +25,8 @@
       "error": "",
       "collectionIds": [
         "3782668714"
-      ]
+      ],
+      "disabledModIds": []
     },
     "3580276809": {
       "workshopId": "3580276809",
@@ -37,7 +39,8 @@
       "error": "",
       "collectionIds": [
         "3782668714"
-      ]
+      ],
+      "disabledModIds": []
     },
     "3543229299": {
       "workshopId": "3543229299",
@@ -52,7 +55,8 @@
       "error": "",
       "collectionIds": [
         "3782668714"
-      ]
+      ],
+      "disabledModIds": []
     },
     "2313387159": {
       "workshopId": "2313387159",
@@ -65,7 +69,8 @@
       "error": "",
       "collectionIds": [
         "3782668714"
-      ]
+      ],
+      "disabledModIds": []
     },
     "3723749278": {
       "workshopId": "3723749278",
@@ -78,7 +83,8 @@
       "error": "",
       "collectionIds": [
         "3782668714"
-      ]
+      ],
+      "disabledModIds": []
     },
     "3725497089": {
       "workshopId": "3725497089",
@@ -91,7 +97,8 @@
       "error": "",
       "collectionIds": [
         "3782668714"
-      ]
+      ],
+      "disabledModIds": []
     },
     "3780683663": {
       "workshopId": "3780683663",
@@ -104,7 +111,8 @@
       "error": "",
       "collectionIds": [
         "3782668714"
-      ]
+      ],
+      "disabledModIds": []
     },
     "2447729538": {
       "workshopId": "2447729538",
@@ -117,7 +125,8 @@
       "error": "",
       "collectionIds": [
         "3782668714"
-      ]
+      ],
+      "disabledModIds": []
     },
     "3776055648": {
       "workshopId": "3776055648",
@@ -130,7 +139,8 @@
       "error": "",
       "collectionIds": [
         "3782668714"
-      ]
+      ],
+      "disabledModIds": []
     },
     "3739256725": {
       "workshopId": "3739256725",
@@ -143,7 +153,8 @@
       "error": "",
       "collectionIds": [
         "3782668714"
-      ]
+      ],
+      "disabledModIds": []
     },
     "3773985930": {
       "workshopId": "3773985930",
@@ -156,7 +167,8 @@
       "error": "",
       "collectionIds": [
         "3782668714"
-      ]
+      ],
+      "disabledModIds": []
     },
     "3778386398": {
       "workshopId": "3778386398",
@@ -169,7 +181,8 @@
       "error": "",
       "collectionIds": [
         "3782668714"
-      ]
+      ],
+      "disabledModIds": []
     },
     "3770149036": {
       "workshopId": "3770149036",
@@ -182,7 +195,8 @@
       "error": "",
       "collectionIds": [
         "3782668714"
-      ]
+      ],
+      "disabledModIds": []
     },
     "3753700423": {
       "workshopId": "3753700423",
@@ -195,20 +209,8 @@
       "error": "",
       "collectionIds": [
         "3782668714"
-      ]
-    },
-    "2956146279": {
-      "workshopId": "2956146279",
-      "name": "Rain Cleans Blood [B42.20 + MP]",
-      "modIds": [
-        "RainCleansBlood"
       ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3782668714"
-      ]
+      "disabledModIds": []
     },
     "3734639991": {
       "workshopId": "3734639991",
@@ -221,7 +223,8 @@
       "error": "",
       "collectionIds": [
         "3782668714"
-      ]
+      ],
+      "disabledModIds": []
     },
     "3778511497": {
       "workshopId": "3778511497",
@@ -234,7 +237,8 @@
       "error": "",
       "collectionIds": [
         "3782668714"
-      ]
+      ],
+      "disabledModIds": []
     },
     "3290232938": {
       "workshopId": "3290232938",
@@ -247,7 +251,8 @@
       "error": "",
       "collectionIds": [
         "3782668714"
-      ]
+      ],
+      "disabledModIds": []
     },
     "3579640010": {
       "workshopId": "3579640010",
@@ -260,7 +265,8 @@
       "error": "",
       "collectionIds": [
         "3782668714"
-      ]
+      ],
+      "disabledModIds": []
     },
     "3171167894": {
       "workshopId": "3171167894",
@@ -274,59 +280,248 @@
       "collectionIds": [
         "3782668714",
         "3780139158"
-      ]
+      ],
+      "disabledModIds": []
     },
-    "3736555309": {
-      "workshopId": "3736555309",
-      "name": "The Psychopath Trait [B42.20 SP/MP]",
+    "3077900375": {
+      "workshopId": "3077900375",
+      "name": "Mod Update and Alert System",
       "modIds": [
-        "PK42Psychopath"
+        "ChuckleberryFinnAlertSystem"
       ],
       "maps": [],
       "ok": true,
       "error": "",
       "collectionIds": [
-        "3782668714"
+        "3782727681"
       ]
     },
-    "2409333430": {
-      "workshopId": "2409333430",
-      "name": "'91 RANGE ROVER Classic",
+    "2896041179": {
+      "workshopId": "2896041179",
+      "name": "errorMagnifier",
       "modIds": [
-        "91range"
+        "errorMagnifier"
       ],
       "maps": [],
       "ok": true,
       "error": "",
       "collectionIds": [
-        "3780139158"
+        "3782727681"
       ]
     },
-    "2566953935": {
-      "workshopId": "2566953935",
-      "name": "'86 Oshkosh P19A + Military Trailers",
+    "3624971238": {
+      "workshopId": "3624971238",
+      "name": "Yet Another PZ LIbrary",
       "modIds": [
-        "86oshkoshP19A"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "2618213077": {
-      "workshopId": "2618213077",
-      "name": "'82 Oshkosh M911 + Military Semi-Trailers",
-      "modIds": [
-        "82oshkoshM911"
+        "YAPZLib"
       ],
       "maps": [],
       "ok": true,
       "error": "",
       "collectionIds": [
         "3780139158"
-      ]
+      ],
+      "disabledModIds": []
+    },
+    "2757712197": {
+      "workshopId": "2757712197",
+      "name": "Vehicle Repair Overhaul",
+      "modIds": [
+        "VehicleRepairOverhaul",
+        "VehicleSalvageOverhaulB42"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3423424077": {
+      "workshopId": "3423424077",
+      "name": "Vanilla Vehicles Replacer (KI5)",
+      "modIds": [
+        "VVR"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3402491515": {
+      "workshopId": "3402491515",
+      "name": "Tsar's Common Library B42",
+      "modIds": [
+        "tsarslib"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3330403100": {
+      "workshopId": "3330403100",
+      "name": "Trailers!",
+      "modIds": [
+        "KI5trailers"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3732534934": {
+      "workshopId": "3732534934",
+      "name": "",
+      "modIds": [
+        "M49A2Cfluidcapabilities",
+        "M50A3fluidcapabilities"
+      ],
+      "maps": [],
+      "ok": false,
+      "error": "unavailable (result code 9) - likely removed or private",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3670064951": {
+      "workshopId": "3670064951",
+      "name": "Campers!",
+      "modIds": [
+        "KI5campers"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "2932547723": {
+      "workshopId": "2932547723",
+      "name": "'93 Lincoln Town Car + Limo",
+      "modIds": [
+        "93townCar"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3088951320": {
+      "workshopId": "3088951320",
+      "name": "'93 Ford Taurus",
+      "modIds": [
+        "93fordTaurus"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3001592312": {
+      "workshopId": "3001592312",
+      "name": "'93 Ford Mustang",
+      "modIds": [
+        "93mustangSSP"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3073430075": {
+      "workshopId": "3073430075",
+      "name": "'93 Ford F-Series",
+      "modIds": [
+        "93fordF350"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "2969343830": {
+      "workshopId": "2969343830",
+      "name": "'93 Ford CF8000 Elgin Street Sweeper",
+      "modIds": [
+        "93fordElgin"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3152529790": {
+      "workshopId": "3152529790",
+      "name": "'93 Chevrolet Suburban / Silverado",
+      "modIds": [
+        "93chevySuburban",
+        "93chevySuburbanExpanded"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3287727378": {
+      "workshopId": "3287727378",
+      "name": "'92 Jeep YJ Wrangler",
+      "modIds": [
+        "92jeepYJ",
+        "92jeepYJJP18"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "2962175696": {
+      "workshopId": "2962175696",
+      "name": "'92 Ford Crown Victoria",
+      "modIds": [
+        "92fordCVPI"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
     },
     "2642541073": {
       "workshopId": "2642541073",
@@ -339,50 +534,316 @@
       "error": "",
       "collectionIds": [
         "3780139158"
-      ]
+      ],
+      "disabledModIds": []
     },
-    "2799152995": {
-      "workshopId": "2799152995",
-      "name": "'78 AM General M35 Series Trucks",
+    "2409333430": {
+      "workshopId": "2409333430",
+      "name": "'91 RANGE ROVER Classic",
       "modIds": [
-        "78amgeneralM35A2",
-        "78amgeneralM35A2extra",
-        "78amgeneralM49A2C",
-        "78amgeneralM50A3",
-        "78amgeneralM62"
+        "91range"
       ],
       "maps": [],
       "ok": true,
       "error": "",
       "collectionIds": [
         "3780139158"
-      ]
+      ],
+      "disabledModIds": []
     },
-    "2805630347": {
-      "workshopId": "2805630347",
-      "name": "'84 Mercedes Benz W460",
+    "3504401781": {
+      "workshopId": "3504401781",
+      "name": "'91 Nissan 240SX",
       "modIds": [
-        "84merc"
+        "91nissan240sx"
       ],
       "maps": [],
       "ok": true,
       "error": "",
       "collectionIds": [
         "3780139158"
-      ]
+      ],
+      "disabledModIds": []
     },
-    "2811383142": {
-      "workshopId": "2811383142",
-      "name": "'83 AM General M923",
+    "3770890864": {
+      "workshopId": "3770890864",
+      "name": "'91 Lexus LS400",
       "modIds": [
-        "83amgeneralM923"
+        "91lexusLS400"
       ],
       "maps": [],
       "ok": true,
       "error": "",
       "collectionIds": [
         "3780139158"
-      ]
+      ],
+      "disabledModIds": []
+    },
+    "3008795514": {
+      "workshopId": "3008795514",
+      "name": "'91 Geo Metro",
+      "modIds": [
+        "91geoMetro"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3539691958": {
+      "workshopId": "3539691958",
+      "name": "'91 Ford Ranger",
+      "modIds": [
+        "91fordRanger"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3366300557": {
+      "workshopId": "3366300557",
+      "name": "'91 Ford LTD Crown Victoria / Country Squire",
+      "modIds": [
+        "91fordLTD"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "2942793445": {
+      "workshopId": "2942793445",
+      "name": "'90 Pierce Arrow Pumper and Ladder Trucks",
+      "modIds": [
+        "90pierceArrow"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "2952802178": {
+      "workshopId": "2952802178",
+      "name": "'90 Ford F350 Ambulance",
+      "modIds": [
+        "90fordF350ambulance"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3110913021": {
+      "workshopId": "3110913021",
+      "name": "'90 BMW 3 Series (E30)",
+      "modIds": [
+        "90bmwE30"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3292659291": {
+      "workshopId": "3292659291",
+      "name": "'89 Volvo 200 Series",
+      "modIds": [
+        "89volvo200"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3570973322": {
+      "workshopId": "3570973322",
+      "name": "'89 LAND ROVER Defender",
+      "modIds": [
+        "89defender"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "2932549988": {
+      "workshopId": "2932549988",
+      "name": "'89 Isuzu Trooper",
+      "modIds": [
+        "89trooper"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "2886833398": {
+      "workshopId": "2886833398",
+      "name": "'89 Ford Bronco",
+      "modIds": [
+        "89fordBronco"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3034636011": {
+      "workshopId": "3034636011",
+      "name": "'89 Dodge Caravan",
+      "modIds": [
+        "89dodgeCaravan"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3435796523": {
+      "workshopId": "3435796523",
+      "name": "'88 Toyota Hilux",
+      "modIds": [
+        "88toyotaHilux"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "2886832936": {
+      "workshopId": "2886832936",
+      "name": "'88 Chevrolet S10",
+      "modIds": [
+        "88chevyS10"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3052360250": {
+      "workshopId": "3052360250",
+      "name": "'87 Toyota MR2",
+      "modIds": [
+        "87toyotaMR2"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3779315249": {
+      "workshopId": "3779315249",
+      "name": "'87 Toyota Corolla AE92",
+      "modIds": [
+        "87toyotaCorolla"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3110911330": {
+      "workshopId": "3110911330",
+      "name": "'87 Ford B700/F700 Trucks",
+      "modIds": [
+        "87fordB700"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3196180339": {
+      "workshopId": "3196180339",
+      "name": "'87 Chevrolet Suburban",
+      "modIds": [
+        "87chevySuburban"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3226885926": {
+      "workshopId": "3226885926",
+      "name": "'87 Buick Regal",
+      "modIds": [
+        "87buickRegal"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "2566953935": {
+      "workshopId": "2566953935",
+      "name": "'86 Oshkosh P19A + Military Trailers",
+      "modIds": [
+        "86oshkoshP19A"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
     },
     "2870394916": {
       "workshopId": "2870394916",
@@ -399,505 +860,8 @@
       "error": "",
       "collectionIds": [
         "3780139158"
-      ]
-    },
-    "2873290424": {
-      "workshopId": "2873290424",
-      "name": "'70 Dodge Challenger",
-      "modIds": [
-        "70dodge"
       ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "2886832257": {
-      "workshopId": "2886832257",
-      "name": "'82 Jeep J10",
-      "modIds": [
-        "82jeepJ10",
-        "82jeepJ10t"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "2886832936": {
-      "workshopId": "2886832936",
-      "name": "'88 Chevrolet S10",
-      "modIds": [
-        "88chevyS10"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "2886833398": {
-      "workshopId": "2886833398",
-      "name": "'89 Ford Bronco",
-      "modIds": [
-        "89fordBronco"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "2913633066": {
-      "workshopId": "2913633066",
-      "name": "'70 Plymouth Barracuda",
-      "modIds": [
-        "70barracuda"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "2932547723": {
-      "workshopId": "2932547723",
-      "name": "'93 Lincoln Town Car + Limo",
-      "modIds": [
-        "93townCar"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "2932549988": {
-      "workshopId": "2932549988",
-      "name": "'89 Isuzu Trooper",
-      "modIds": [
-        "89trooper"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "2942793445": {
-      "workshopId": "2942793445",
-      "name": "'90 Pierce Arrow Pumper and Ladder Trucks",
-      "modIds": [
-        "90pierceArrow"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "2952802178": {
-      "workshopId": "2952802178",
-      "name": "'90 Ford F350 Ambulance",
-      "modIds": [
-        "90fordF350ambulance"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "2962175696": {
-      "workshopId": "2962175696",
-      "name": "'92 Ford Crown Victoria",
-      "modIds": [
-        "92fordCVPI"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "2969343830": {
-      "workshopId": "2969343830",
-      "name": "'93 Ford CF8000 Elgin Street Sweeper",
-      "modIds": [
-        "93fordElgin"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "2991201484": {
-      "workshopId": "2991201484",
-      "name": "'69 Chevrolet Camaro",
-      "modIds": [
-        "69camaro"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3001592312": {
-      "workshopId": "3001592312",
-      "name": "'93 Ford Mustang",
-      "modIds": [
-        "93mustangSSP"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3008795514": {
-      "workshopId": "3008795514",
-      "name": "'91 Geo Metro",
-      "modIds": [
-        "91geoMetro"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3034636011": {
-      "workshopId": "3034636011",
-      "name": "'89 Dodge Caravan",
-      "modIds": [
-        "89dodgeCaravan"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3052360250": {
-      "workshopId": "3052360250",
-      "name": "'87 Toyota MR2",
-      "modIds": [
-        "87toyotaMR2"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3073430075": {
-      "workshopId": "3073430075",
-      "name": "'93 Ford F-Series",
-      "modIds": [
-        "93fordF350"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3088951320": {
-      "workshopId": "3088951320",
-      "name": "'93 Ford Taurus",
-      "modIds": [
-        "93fordTaurus"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3110911330": {
-      "workshopId": "3110911330",
-      "name": "'87 Ford B700/F700 Trucks",
-      "modIds": [
-        "87fordB700"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3110913021": {
-      "workshopId": "3110913021",
-      "name": "'90 BMW 3 Series (E30)",
-      "modIds": [
-        "90bmwE30"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3152529790": {
-      "workshopId": "3152529790",
-      "name": "'93 Chevrolet Suburban / Silverado",
-      "modIds": [
-        "93chevySuburban",
-        "93chevySuburbanExpanded"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3161951724": {
-      "workshopId": "3161951724",
-      "name": "'76 Chevrolet K Series",
-      "modIds": [
-        "76chevyKseries"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3171184800": {
-      "workshopId": "3171184800",
-      "name": "'84 Cadillac Gage LAV-300",
-      "modIds": [
-        "84gageV300"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3196180339": {
-      "workshopId": "3196180339",
-      "name": "'87 Chevrolet Suburban",
-      "modIds": [
-        "87chevySuburban"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3226885926": {
-      "workshopId": "3226885926",
-      "name": "'87 Buick Regal",
-      "modIds": [
-        "87buickRegal"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3248388837": {
-      "workshopId": "3248388837",
-      "name": "'80 MAN KAT1",
-      "modIds": [
-        "80manKat1"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3287727378": {
-      "workshopId": "3287727378",
-      "name": "'92 Jeep YJ Wrangler",
-      "modIds": [
-        "92jeepYJ",
-        "92jeepYJJP18"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3292659291": {
-      "workshopId": "3292659291",
-      "name": "'89 Volvo 200 Series",
-      "modIds": [
-        "89volvo200"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3320947974": {
-      "workshopId": "3320947974",
-      "name": "'82 Pontiac Firebird",
-      "modIds": [
-        "82firebird",
-        "82firebirdKITT"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3330401526": {
-      "workshopId": "3330401526",
-      "name": "'85 Club Car Golf Cart",
-      "modIds": [
-        "85clubMan"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3330403100": {
-      "workshopId": "3330403100",
-      "name": "Trailers!",
-      "modIds": [
-        "KI5trailers"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3346905070": {
-      "workshopId": "3346905070",
-      "name": "'77 Pontiac Firebird",
-      "modIds": [
-        "77firebird"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3366300557": {
-      "workshopId": "3366300557",
-      "name": "'91 Ford LTD Crown Victoria / Country Squire",
-      "modIds": [
-        "91fordLTD"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3409287192": {
-      "workshopId": "3409287192",
-      "name": "'84 Jeep XJ Cherokee",
-      "modIds": [
-        "84jeepXJ"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3413704851": {
-      "workshopId": "3413704851",
-      "name": "'85 Chevrolet Caprice / Impala",
-      "modIds": [
-        "85chevyCaprice"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3413706334": {
-      "workshopId": "3413706334",
-      "name": "'85 Pontiac Parisienne",
-      "modIds": [
-        "85pontiacParisienne"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3418252689": {
-      "workshopId": "3418252689",
-      "name": "'85 Buick LeSabre",
-      "modIds": [
-        "85buickLeSabre"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3418253716": {
-      "workshopId": "3418253716",
-      "name": "'85 Oldsmobile Delta 88",
-      "modIds": [
-        "85oldsmobileDelta88"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
+      "disabledModIds": []
     },
     "3428008364": {
       "workshopId": "3428008364",
@@ -910,112 +874,50 @@
       "error": "",
       "collectionIds": [
         "3780139158"
-      ]
+      ],
+      "disabledModIds": []
     },
-    "3435796523": {
-      "workshopId": "3435796523",
-      "name": "'88 Toyota Hilux",
+    "3413706334": {
+      "workshopId": "3413706334",
+      "name": "'85 Pontiac Parisienne",
       "modIds": [
-        "88toyotaHilux"
+        "85pontiacParisienne"
       ],
       "maps": [],
       "ok": true,
       "error": "",
       "collectionIds": [
         "3780139158"
-      ]
+      ],
+      "disabledModIds": []
     },
-    "3490370700": {
-      "workshopId": "3490370700",
-      "name": "'73 Ford Falcon",
+    "3418253716": {
+      "workshopId": "3418253716",
+      "name": "'85 Oldsmobile Delta 88",
       "modIds": [
-        "73fordFalcon",
-        "73fordFalconPS"
+        "85oldsmobileDelta88"
       ],
       "maps": [],
       "ok": true,
       "error": "",
       "collectionIds": [
         "3780139158"
-      ]
+      ],
+      "disabledModIds": []
     },
-    "3504401781": {
-      "workshopId": "3504401781",
-      "name": "'91 Nissan 240SX",
+    "3330401526": {
+      "workshopId": "3330401526",
+      "name": "'85 Club Car Golf Cart",
       "modIds": [
-        "91nissan240sx"
+        "85clubMan"
       ],
       "maps": [],
       "ok": true,
       "error": "",
       "collectionIds": [
         "3780139158"
-      ]
-    },
-    "3539691958": {
-      "workshopId": "3539691958",
-      "name": "'91 Ford Ranger",
-      "modIds": [
-        "91fordRanger"
       ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3570973322": {
-      "workshopId": "3570973322",
-      "name": "'89 LAND ROVER Defender",
-      "modIds": [
-        "89defender"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3592777775": {
-      "workshopId": "3592777775",
-      "name": "'84 Cadillac DeVille",
-      "modIds": [
-        "84cadillacDeVille"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3596903773": {
-      "workshopId": "3596903773",
-      "name": "'84 Buick Electra",
-      "modIds": [
-        "84buickElectra"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3601417745": {
-      "workshopId": "3601417745",
-      "name": "'84 Oldsmobile 98 Regency",
-      "modIds": [
-        "84oldsmobile98"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
+      "disabledModIds": []
     },
     "3614034284": {
       "workshopId": "3614034284",
@@ -1029,20 +931,78 @@
       "error": "",
       "collectionIds": [
         "3780139158"
-      ]
+      ],
+      "disabledModIds": []
     },
-    "3670064951": {
-      "workshopId": "3670064951",
-      "name": "Campers!",
+    "3413704851": {
+      "workshopId": "3413704851",
+      "name": "'85 Chevrolet Caprice / Impala",
       "modIds": [
-        "KI5campers"
+        "85chevyCaprice"
       ],
       "maps": [],
       "ok": true,
       "error": "",
       "collectionIds": [
         "3780139158"
-      ]
+      ],
+      "disabledModIds": []
+    },
+    "3418252689": {
+      "workshopId": "3418252689",
+      "name": "'85 Buick LeSabre",
+      "modIds": [
+        "85buickLeSabre"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3601417745": {
+      "workshopId": "3601417745",
+      "name": "'84 Oldsmobile 98 Regency",
+      "modIds": [
+        "84oldsmobile98"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "2805630347": {
+      "workshopId": "2805630347",
+      "name": "'84 Mercedes Benz W460",
+      "modIds": [
+        "84merc"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3409287192": {
+      "workshopId": "3409287192",
+      "name": "'84 Jeep XJ Cherokee",
+      "modIds": [
+        "84jeepXJ"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
     },
     "3684254299": {
       "workshopId": "3684254299",
@@ -1055,7 +1015,122 @@
       "error": "",
       "collectionIds": [
         "3780139158"
-      ]
+      ],
+      "disabledModIds": []
+    },
+    "3171184800": {
+      "workshopId": "3171184800",
+      "name": "'84 Cadillac Gage LAV-300",
+      "modIds": [
+        "84gageV300"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3592777775": {
+      "workshopId": "3592777775",
+      "name": "'84 Cadillac DeVille",
+      "modIds": [
+        "84cadillacDeVille"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3596903773": {
+      "workshopId": "3596903773",
+      "name": "'84 Buick Electra",
+      "modIds": [
+        "84buickElectra"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "2811383142": {
+      "workshopId": "2811383142",
+      "name": "'83 AM General M923",
+      "modIds": [
+        "83amgeneralM923"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3320947974": {
+      "workshopId": "3320947974",
+      "name": "'82 Pontiac Firebird",
+      "modIds": [
+        "82firebird",
+        "82firebirdKITT"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "2618213077": {
+      "workshopId": "2618213077",
+      "name": "'82 Oshkosh M911 + Military Semi-Trailers",
+      "modIds": [
+        "82oshkoshM911"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "2886832257": {
+      "workshopId": "2886832257",
+      "name": "'82 Jeep J10",
+      "modIds": [
+        "82jeepJ10",
+        "82jeepJ10t"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3248388837": {
+      "workshopId": "3248388837",
+      "name": "'80 MAN KAT1",
+      "modIds": [
+        "80manKat1"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
     },
     "3703948448": {
       "workshopId": "3703948448",
@@ -1068,7 +1143,40 @@
       "error": "",
       "collectionIds": [
         "3780139158"
-      ]
+      ],
+      "disabledModIds": []
+    },
+    "2799152995": {
+      "workshopId": "2799152995",
+      "name": "'78 AM General M35 Series Trucks",
+      "modIds": [
+        "78amgeneralM35A2",
+        "78amgeneralM35A2extra",
+        "78amgeneralM49A2C",
+        "78amgeneralM50A3",
+        "78amgeneralM62"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3346905070": {
+      "workshopId": "3346905070",
+      "name": "'77 Pontiac Firebird",
+      "modIds": [
+        "77firebird"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
     },
     "3730833846": {
       "workshopId": "3730833846",
@@ -1081,7 +1189,79 @@
       "error": "",
       "collectionIds": [
         "3780139158"
-      ]
+      ],
+      "disabledModIds": []
+    },
+    "3161951724": {
+      "workshopId": "3161951724",
+      "name": "'76 Chevrolet K Series",
+      "modIds": [
+        "76chevyKseries"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3490370700": {
+      "workshopId": "3490370700",
+      "name": "'73 Ford Falcon",
+      "modIds": [
+        "73fordFalcon",
+        "73fordFalconPS"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "2913633066": {
+      "workshopId": "2913633066",
+      "name": "'70 Plymouth Barracuda",
+      "modIds": [
+        "70barracuda"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "2873290424": {
+      "workshopId": "2873290424",
+      "name": "'70 Dodge Challenger",
+      "modIds": [
+        "70dodge"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3766571591": {
+      "workshopId": "3766571591",
+      "name": "'70 Chevrolet Chevelle / El Camino",
+      "modIds": [
+        "70chevelle"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": []
     },
     "3756938756": {
       "workshopId": "3756938756",
@@ -1095,99 +1275,143 @@
       "error": "",
       "collectionIds": [
         "3780139158"
-      ]
+      ],
+      "disabledModIds": []
     },
-    "3766571591": {
-      "workshopId": "3766571591",
-      "name": "'70 Chevrolet Chevelle / El Camino",
+    "2991201484": {
+      "workshopId": "2991201484",
+      "name": "'69 Chevrolet Camaro",
       "modIds": [
-        "70chevelle"
+        "69camaro"
       ],
       "maps": [],
       "ok": true,
       "error": "",
       "collectionIds": [
         "3780139158"
+      ],
+      "disabledModIds": []
+    },
+    "3761077099": {
+      "workshopId": "3761077099",
+      "name": "[B42] Vanilla Firearms Expansion [CLASSIC]",
+      "modIds": [
+        "VFExpansion1"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780135570"
+      ],
+      "disabledModIds": []
+    },
+    "3401134276": {
+      "workshopId": "3401134276",
+      "name": "Vanilla Gear Expanded",
+      "modIds": [
+        "VanillaGearExpanded"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780135570"
+      ],
+      "disabledModIds": []
+    },
+    "3577903007": {
+      "workshopId": "3577903007",
+      "name": "Vanilla Foods Expanded",
+      "modIds": [
+        "VanillaFoodsExpanded"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780135570"
+      ],
+      "disabledModIds": []
+    },
+    "3421271152": {
+      "workshopId": "3421271152",
+      "name": "Vanilla Clothing Expansion",
+      "modIds": [
+        "1VCESTANDARD",
+        "1VCESTANDARDNOMP",
+        "1VCESTANDARDPre42"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780135570"
+      ],
+      "disabledModIds": [
+        "1VCESTANDARDPre42",
+        "1VCESTANDARDNOMP"
       ]
     },
-    "3770890864": {
-      "workshopId": "3770890864",
-      "name": "'91 Lexus LS400",
+    "3728357493": {
+      "workshopId": "3728357493",
+      "name": "Haven Fall [B42]",
       "modIds": [
-        "91lexusLS400"
+        "HavenFall"
+      ],
+      "maps": [
+        "HavenFall"
+      ],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780135570"
+      ],
+      "disabledModIds": []
+    },
+    "3484263516": {
+      "workshopId": "3484263516",
+      "name": "Raven Creek B42",
+      "modIds": [
+        "RavenCreekB42"
+      ],
+      "maps": [
+        "Raven Creek B42"
+      ],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780135570"
+      ],
+      "disabledModIds": []
+    },
+    "2625625421": {
+      "workshopId": "2625625421",
+      "name": "Containers!",
+      "modIds": [
+        "isoContainers"
       ],
       "maps": [],
       "ok": true,
       "error": "",
       "collectionIds": [
         "3780139158"
-      ]
+      ],
+      "disabledModIds": []
     },
-    "3779315249": {
-      "workshopId": "3779315249",
-      "name": "'87 Toyota Corolla AE92",
+    "2478247379": {
+      "workshopId": "2478247379",
+      "name": "'67 Cadillac Gage Commando",
       "modIds": [
-        "87toyotaCorolla"
+        "67commando"
       ],
       "maps": [],
       "ok": true,
       "error": "",
       "collectionIds": [
         "3780139158"
-      ]
-    },
-    "2757712197": {
-      "workshopId": "2757712197",
-      "name": "Vehicle Repair Overhaul",
-      "modIds": [
-        "VehicleRepairOverhaul",
-        "VehicleSalvageOverhaulB42"
       ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3423424077": {
-      "workshopId": "3423424077",
-      "name": "Vanilla Vehicles Replacer (KI5)",
-      "modIds": [
-        "VVR"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3624971238": {
-      "workshopId": "3624971238",
-      "name": "Yet Another PZ LIbrary",
-      "modIds": [
-        "YAPZLib"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
-    },
-    "3402491515": {
-      "workshopId": "3402491515",
-      "name": "Tsar's Common Library B42",
-      "modIds": [
-        "tsarslib"
-      ],
-      "maps": [],
-      "ok": true,
-      "error": "",
-      "collectionIds": [
-        "3780139158"
-      ]
+      "disabledModIds": []
     }
   },
   "collections": {
@@ -1196,8 +1420,8 @@
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3782668714",
       "name": "",
       "order": [
-        "3469292499",
         "3268487204",
+        "3469292499",
         "3580276809",
         "3543229299",
         "2313387159",
@@ -1205,19 +1429,26 @@
         "3725497089",
         "3780683663",
         "2447729538",
-        "3776055648",
         "3739256725",
+        "3776055648",
         "3773985930",
         "3778386398",
         "3770149036",
         "3753700423",
-        "2956146279",
         "3734639991",
         "3778511497",
         "3290232938",
         "3579640010",
-        "3171167894",
-        "3736555309"
+        "3171167894"
+      ]
+    },
+    "3782727681": {
+      "id": "3782727681",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3782727681",
+      "name": "",
+      "order": [
+        "3077900375",
+        "2896041179"
       ]
     },
     "3780139158": {
@@ -1225,79 +1456,97 @@
       "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3780139158",
       "name": "",
       "order": [
-        "2409333430",
-        "2566953935",
-        "2618213077",
-        "2642541073",
-        "2799152995",
-        "2805630347",
-        "2811383142",
-        "2870394916",
-        "2873290424",
-        "2886832257",
-        "2886832936",
-        "2886833398",
-        "2913633066",
-        "2932547723",
-        "2932549988",
-        "2942793445",
-        "2952802178",
-        "2962175696",
-        "2969343830",
-        "2991201484",
-        "3001592312",
-        "3008795514",
-        "3034636011",
-        "3052360250",
-        "3073430075",
-        "3088951320",
-        "3110911330",
-        "3110913021",
-        "3152529790",
-        "3161951724",
-        "3171167894",
-        "3171184800",
-        "3196180339",
-        "3226885926",
-        "3248388837",
-        "3287727378",
-        "3292659291",
-        "3320947974",
-        "3330401526",
-        "3330403100",
-        "3346905070",
-        "3366300557",
-        "3409287192",
-        "3413704851",
-        "3413706334",
-        "3418252689",
-        "3418253716",
-        "3428008364",
-        "3435796523",
-        "3490370700",
-        "3504401781",
-        "3539691958",
-        "3570973322",
-        "3592777775",
-        "3596903773",
-        "3601417745",
-        "3614034284",
-        "3670064951",
-        "3684254299",
-        "3703948448",
-        "3730833846",
-        "3756938756",
-        "3766571591",
-        "3770890864",
-        "3779315249",
+        "3624971238",
         "2757712197",
         "3423424077",
-        "3624971238",
-        "3402491515"
+        "3402491515",
+        "3732534934",
+        "3330403100",
+        "3171167894",
+        "3670064951",
+        "2932547723",
+        "3088951320",
+        "3001592312",
+        "3073430075",
+        "2969343830",
+        "3152529790",
+        "3287727378",
+        "2962175696",
+        "2642541073",
+        "2409333430",
+        "3504401781",
+        "3770890864",
+        "3008795514",
+        "3539691958",
+        "3366300557",
+        "2942793445",
+        "2952802178",
+        "3110913021",
+        "3292659291",
+        "3570973322",
+        "2932549988",
+        "2886833398",
+        "3034636011",
+        "3435796523",
+        "2886832936",
+        "3052360250",
+        "3779315249",
+        "3110911330",
+        "3196180339",
+        "3226885926",
+        "2566953935",
+        "2870394916",
+        "3428008364",
+        "3413706334",
+        "3418253716",
+        "3330401526",
+        "3614034284",
+        "3413704851",
+        "3418252689",
+        "3601417745",
+        "2805630347",
+        "3409287192",
+        "3684254299",
+        "3171184800",
+        "3592777775",
+        "3596903773",
+        "2811383142",
+        "3320947974",
+        "2618213077",
+        "2886832257",
+        "3248388837",
+        "3703948448",
+        "2799152995",
+        "3346905070",
+        "3730833846",
+        "3161951724",
+        "3490370700",
+        "2913633066",
+        "2873290424",
+        "3766571591",
+        "3756938756",
+        "2991201484",
+        "2625625421",
+        "2478247379"
+      ]
+    },
+    "3780135570": {
+      "id": "3780135570",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3780135570",
+      "name": "",
+      "order": [
+        "3761077099",
+        "3401134276",
+        "3577903007",
+        "3421271152",
+        "3728357493",
+        "3484263516"
       ]
     }
   },
   "collectionOrder": [
+    "3780135570",
+    "3782727681",
     "3782668714",
     "3780139158"
   ]

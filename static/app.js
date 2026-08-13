@@ -66,27 +66,46 @@ function renderModItem(id) {
   if (!mod.ok) li.classList.add("failed");
   else if (!mod.modIds || mod.modIds.length === 0) li.classList.add("no-modid");
 
-  const metaBits = [`<span class="wsid">${id}</span>`];
+  const modIds = mod.modIds || [];
+  const disabled = new Set(mod.disabledModIds || []);
+
+  const metaBits = [`<a class="wsid wsid-link" href="https://steamcommunity.com/sharedfiles/filedetails/?id=${escapeAttr(id)}" target="_blank" rel="noopener">${escapeHtml(id)}</a>`];
   if (!mod.ok) {
     metaBits.push(`<span class="fail-tag">fetch failed</span>`);
-  } else if (!mod.modIds || mod.modIds.length === 0) {
+  } else if (modIds.length === 0) {
     metaBits.push(`<span class="warn-tag">no Mod ID found — check manually</span>`);
-  } else if (mod.modIds.length > 1) {
-    metaBits.push(`<span class="warn-tag">${mod.modIds.length} mod ids — verify</span>`);
+  } else if (modIds.length > 1) {
+    metaBits.push(`<span class="warn-tag">${modIds.length} mod ids — verify</span>`);
+  }
+
+  let togglesHtml = "";
+  if (modIds.length > 1) {
+    togglesHtml = `<div class="modid-toggles">` + modIds.map((mid) => {
+      const on = !disabled.has(mid);
+      return `<label class="modid-toggle" title="Enable/disable this Mod ID in the output"><input type="checkbox" data-mid="${escapeAttr(mid)}" ${on ? "checked" : ""}> <code>${escapeHtml(mid)}</code></label>`;
+    }).join("") + `</div>`;
   }
 
   li.innerHTML = `
-    <span class="drag-handle" title="Drag to reorder">⠿</span>
-    <div class="mod-main">
-      <div class="mod-name" title="${escapeAttr(mod.name || "")}">${escapeHtml(mod.name || "(untitled)")}</div>
-      <div class="mod-meta">${metaBits.join("")}</div>
+    <div class="mod-top">
+      <span class="drag-handle" title="Drag to reorder">⠿</span>
+      <div class="mod-main">
+        <div class="mod-name" title="${escapeAttr(mod.name || "")}">${escapeHtml(mod.name || "(untitled)")}</div>
+        <div class="mod-meta">${metaBits.join("")}</div>
+      </div>
+      <button class="remove-btn" title="Remove">✕</button>
     </div>
-    <input class="modid-input" type="text" value="${escapeAttr((mod.modIds || []).join(";"))}" placeholder="ModIdA;ModIdB">
-    <button class="remove-btn" title="Remove">✕</button>
+    <div class="mod-bottom">
+      <input class="modid-input" type="text" value="${escapeAttr(modIds.join(";"))}" placeholder="ModIdA;ModIdB">
+      ${togglesHtml}
+    </div>
   `;
 
   li.querySelector(".modid-input").addEventListener("change", (e) => onEditModIds(id, e.target.value));
   li.querySelector(".remove-btn").addEventListener("click", () => onRemove(id));
+  li.querySelectorAll(".modid-toggle input").forEach((cb) => {
+    cb.addEventListener("change", () => onToggleModId(id, cb.dataset.mid, cb.checked));
+  });
 
   return li;
 }
@@ -115,9 +134,9 @@ function renderBoxes() {
       <span class="drag-handle collection-drag" title="Drag to reorder collections">⠿</span>
       <span class="collapse-toggle">${collapsed.has(cid) ? "▸" : "▾"}</span>
       <div class="box-title">
-        <div class="collection-name" title="${escapeAttr(col.url || "")}">${escapeHtml(collectionLabel(col))}</div>
+        <div class="collection-name" title="${escapeAttr(col.url || "")}"><a href="${escapeAttr(col.url || "")}" target="_blank" rel="noopener">${escapeHtml(collectionLabel(col))}</a></div>
         <div class="collection-meta">
-          <span class="wsid">${escapeHtml(cid)}</span>
+          <a class="wsid wsid-link" href="${escapeAttr(col.url || "")}" target="_blank" rel="noopener">${escapeHtml(cid)}</a>
           <span>${wsids.length} mods</span>
         </div>
       </div>
@@ -127,7 +146,7 @@ function renderBoxes() {
       </div>
     `;
     header.addEventListener("click", (e) => {
-      if (e.target.closest("button") || e.target.closest(".collection-drag")) return;
+      if (e.target.closest("button") || e.target.closest(".collection-drag") || e.target.closest("a")) return;
       onToggleCollection(cid);
     });
     header.querySelector(".refresh-btn").addEventListener("click", () => onRefreshCollection(cid));
@@ -200,7 +219,9 @@ function buildOutputs() {
   for (const id of ids) {
     const mod = state.mods[id];
     workshopLines.push(id);
+    const disabled = new Set(mod.disabledModIds || []);
     for (const mid of mod.modIds || []) {
+      if (disabled.has(mid)) continue;
       modIdLines.push(useB42 ? `\\${mid}` : mid);
     }
     for (const m of mod.maps || []) {
@@ -235,6 +256,7 @@ async function scanUrl(url, statusMsg) {
     render();
     const bits = [`Scanned ${res.scannedCount} mods`];
     if (res.newlyAdded.length) bits.push(`${res.newlyAdded.length} new`);
+    if (res.removed.length) bits.push(`${res.removed.length} removed`);
     if (res.noModId.length) bits.push(`${res.noModId.length} missing a Mod ID`);
     if (res.failed.length) bits.push(`${res.failed.length} failed to fetch`);
     setStatus(bits.join(" · "), res.failed.length ? "error" : "ok");
@@ -288,6 +310,20 @@ async function onEditModIds(id, raw) {
   render();
   try {
     await api(`/api/mods/${id}`, { method: "POST", body: JSON.stringify({ modIds }) });
+  } catch (e) {
+    setStatus(e.message, "error");
+  }
+}
+
+async function onToggleModId(id, mid, enabled) {
+  const mod = state.mods[id];
+  const disabled = new Set(mod.disabledModIds || []);
+  if (enabled) disabled.delete(mid);
+  else disabled.add(mid);
+  mod.disabledModIds = [...disabled];
+  buildOutputs();
+  try {
+    await api(`/api/mods/${id}`, { method: "POST", body: JSON.stringify({ disabledModIds: mod.disabledModIds }) });
   } catch (e) {
     setStatus(e.message, "error");
   }
