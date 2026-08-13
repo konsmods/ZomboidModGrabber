@@ -77,6 +77,7 @@ def _migrate(data: dict) -> dict:
                 "url": canonical_collection_url(url),
                 "name": "",
                 "order": [],
+                "enabled": True,
             }
             collection_order.append(cid)
 
@@ -85,6 +86,7 @@ def _migrate(data: dict) -> dict:
         if cid not in mod["collectionIds"]:
             mod["collectionIds"].append(cid)
         mod.setdefault("disabledModIds", [])
+        mod.setdefault("enabled", True)
 
     data["collections"] = collections
     data["collectionOrder"] = collection_order
@@ -139,6 +141,7 @@ def merge_scanned(collection_url: str, collection_name: str, scanned_mods) -> tu
                 "url": canonical_collection_url(collection_url),
                 "name": collection_name,
                 "order": [],
+                "enabled": True,
             }
             data["collections"][cid] = collection
             data["collectionOrder"].append(cid)
@@ -146,6 +149,7 @@ def merge_scanned(collection_url: str, collection_name: str, scanned_mods) -> tu
             collection["url"] = canonical_collection_url(collection_url)
             if collection_name:
                 collection["name"] = collection_name
+            collection.setdefault("enabled", True)
 
         scanned_ids = {mod.workshop_id for mod in scanned_mods}
 
@@ -181,6 +185,7 @@ def merge_scanned(collection_url: str, collection_name: str, scanned_mods) -> tu
             if existing is None:
                 entry["collectionIds"] = [cid]
                 entry["disabledModIds"] = []
+                entry["enabled"] = True
                 data["mods"][wsid] = entry
                 collection["order"].append(wsid)
                 newly_added.append(wsid)
@@ -191,6 +196,7 @@ def merge_scanned(collection_url: str, collection_name: str, scanned_mods) -> tu
                 if not entry["modIds"] and existing.get("modIds"):
                     del entry["modIds"]
                 existing.setdefault("disabledModIds", [])
+                existing.setdefault("enabled", True)
                 existing.update(entry)
                 existing.setdefault("collectionIds", [])
                 if cid not in existing["collectionIds"]:
@@ -260,7 +266,7 @@ def remove(workshop_id: str) -> dict:
         return data
 
 
-def update_mod(workshop_id: str, mod_ids: list[str] | None = None, name: str | None = None, disabled_mod_ids: list[str] | None = None) -> dict:
+def update_mod(workshop_id: str, mod_ids: list[str] | None = None, name: str | None = None, disabled_mod_ids: list[str] | None = None, enabled: bool | None = None) -> dict:
     with _lock:
         data = load()
         entry = data["mods"].get(workshop_id)
@@ -272,6 +278,20 @@ def update_mod(workshop_id: str, mod_ids: list[str] | None = None, name: str | N
             entry["name"] = name
         if disabled_mod_ids is not None:
             entry["disabledModIds"] = disabled_mod_ids
+        if enabled is not None:
+            entry["enabled"] = enabled
+        save(data)
+        return data
+
+
+def update_collection(collection_id: str, enabled: bool | None = None) -> dict:
+    with _lock:
+        data = load()
+        collection = data["collections"].get(collection_id)
+        if collection is None:
+            raise KeyError(collection_id)
+        if enabled is not None:
+            collection["enabled"] = enabled
         save(data)
         return data
 

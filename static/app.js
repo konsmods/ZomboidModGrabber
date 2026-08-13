@@ -65,6 +65,7 @@ function renderModItem(id) {
   li.dataset.id = id;
   if (!mod.ok) li.classList.add("failed");
   else if (!mod.modIds || mod.modIds.length === 0) li.classList.add("no-modid");
+  if (mod.enabled === false) li.classList.add("disabled");
 
   const modIds = mod.modIds || [];
   const disabled = new Set(mod.disabledModIds || []);
@@ -93,6 +94,7 @@ function renderModItem(id) {
         <div class="mod-name" title="${escapeAttr(mod.name || "")}">${escapeHtml(mod.name || "(untitled)")}</div>
         <div class="mod-meta">${metaBits.join("")}</div>
       </div>
+      <input type="checkbox" class="enable-toggle mod-enable" title="Include this mod in the output" ${mod.enabled === false ? "" : "checked"}>
       <button class="remove-btn" title="Remove">✕</button>
     </div>
     <div class="mod-bottom">
@@ -103,6 +105,7 @@ function renderModItem(id) {
 
   li.querySelector(".modid-input").addEventListener("change", (e) => onEditModIds(id, e.target.value));
   li.querySelector(".remove-btn").addEventListener("click", () => onRemove(id));
+  li.querySelector(".mod-enable").addEventListener("change", (e) => onToggleModEnabled(id, e.target.checked));
   li.querySelectorAll(".modid-toggle input").forEach((cb) => {
     cb.addEventListener("change", () => onToggleModId(id, cb.dataset.mid, cb.checked));
   });
@@ -127,6 +130,7 @@ function renderBoxes() {
     box.className = "collection-box";
     box.dataset.collection = cid;
     if (collapsed.has(cid)) box.classList.add("collapsed");
+    if (col.enabled === false) box.classList.add("disabled");
 
     const header = document.createElement("div");
     header.className = "box-header";
@@ -141,16 +145,18 @@ function renderBoxes() {
         </div>
       </div>
       <div class="box-actions">
+        <input type="checkbox" class="enable-toggle collection-enable" title="Include this collection in the output" ${col.enabled === false ? "" : "checked"}>
         <button class="refresh-btn" title="Refresh collection">↻</button>
         <button class="remove-btn" title="Delete collection">✕</button>
       </div>
     `;
     header.addEventListener("click", (e) => {
-      if (e.target.closest("button") || e.target.closest(".collection-drag") || e.target.closest("a")) return;
+      if (e.target.closest("button") || e.target.closest(".collection-drag") || e.target.closest("a") || e.target.closest("input")) return;
       onToggleCollection(cid);
     });
     header.querySelector(".refresh-btn").addEventListener("click", () => onRefreshCollection(cid));
     header.querySelector(".remove-btn").addEventListener("click", () => onDeleteCollection(cid));
+    header.querySelector(".collection-enable").addEventListener("change", (e) => onToggleCollectionEnabled(cid, e.target.checked));
     box.appendChild(header);
 
     const ul = document.createElement("ul");
@@ -198,8 +204,11 @@ function orderedIds() {
   const cids = state.collectionOrder.filter((c) => state.collections[c]);
   for (const cid of cids) {
     const col = state.collections[cid];
+    if (col.enabled === false) continue;
     for (const id of col.order || []) {
-      if (state.mods[id] && !seen.has(id)) {
+      const mod = state.mods[id];
+      if (!mod || mod.enabled === false) continue;
+      if (!seen.has(id)) {
         seen.add(id);
         ids.push(id);
       }
@@ -324,6 +333,31 @@ async function onToggleModId(id, mid, enabled) {
   buildOutputs();
   try {
     await api(`/api/mods/${id}`, { method: "POST", body: JSON.stringify({ disabledModIds: mod.disabledModIds }) });
+  } catch (e) {
+    setStatus(e.message, "error");
+  }
+}
+
+async function onToggleModEnabled(id, enabled) {
+  state.mods[id].enabled = enabled;
+  document.querySelectorAll(`.mod-item[data-id="${id}"]`).forEach((li) => {
+    li.classList.toggle("disabled", !enabled);
+  });
+  buildOutputs();
+  try {
+    await api(`/api/mods/${id}`, { method: "POST", body: JSON.stringify({ enabled }) });
+  } catch (e) {
+    setStatus(e.message, "error");
+  }
+}
+
+async function onToggleCollectionEnabled(cid, enabled) {
+  state.collections[cid].enabled = enabled;
+  const box = boxesEl.querySelector(`.collection-box[data-collection="${cid}"]`);
+  if (box) box.classList.toggle("disabled", !enabled);
+  buildOutputs();
+  try {
+    await api(`/api/collections/${cid}`, { method: "POST", body: JSON.stringify({ enabled }) });
   } catch (e) {
     setStatus(e.message, "error");
   }

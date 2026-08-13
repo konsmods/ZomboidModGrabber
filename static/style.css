@@ -262,6 +262,20 @@ button:disabled { opacity: .5; cursor: not-allowed; }
 }
 .refresh-btn:hover { color: var(--accent); }
 
+.enable-toggle {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  accent-color: var(--accent);
+  flex-shrink: 0;
+}
+
+.collection-box.disabled .box-title { opacity: 0.45; }
+.collection-box.disabled .collection-name a { text-decoration: line-through; }
+
+.mod-item.disabled { opacity: 0.5; }
+.mod-item.disabled .mod-name { text-decoration: line-through; }
+
 .wsid-link {
   color: var(--accent);
   text-decoration: none;

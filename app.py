@@ -74,11 +74,22 @@ def edit_mod(workshop_id):
     mod_ids = body.get("modIds")
     name = body.get("name")
     disabled_mod_ids = body.get("disabledModIds")
+    enabled = body.get("enabled")
     try:
-        data = store.update_mod(workshop_id, mod_ids=mod_ids, name=name, disabled_mod_ids=disabled_mod_ids)
+        data = store.update_mod(workshop_id, mod_ids=mod_ids, name=name, disabled_mod_ids=disabled_mod_ids, enabled=enabled)
     except KeyError:
         return jsonify({"error": "Unknown workshop id."}), 404
     return jsonify(data)
+
+
+@app.post("/api/collections/<collection_id>")
+def update_collection(collection_id):
+    body = request.get_json(force=True, silent=True) or {}
+    enabled = body.get("enabled")
+    try:
+        return jsonify(store.update_collection(collection_id, enabled=enabled))
+    except KeyError:
+        return jsonify({"error": "Unknown collection."}), 404
 
 
 @app.delete("/api/mods/<workshop_id>")
