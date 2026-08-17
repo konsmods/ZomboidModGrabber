@@ -12,7 +12,8 @@
       "collectionIds": [
         "3782668714"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3268487204": {
       "workshopId": "3268487204",
@@ -26,7 +27,8 @@
       "collectionIds": [
         "3782668714"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3580276809": {
       "workshopId": "3580276809",
@@ -40,7 +42,8 @@
       "collectionIds": [
         "3782668714"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3543229299": {
       "workshopId": "3543229299",
@@ -56,7 +59,8 @@
       "collectionIds": [
         "3782668714"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2313387159": {
       "workshopId": "2313387159",
@@ -70,7 +74,8 @@
       "collectionIds": [
         "3782668714"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3723749278": {
       "workshopId": "3723749278",
@@ -84,7 +89,8 @@
       "collectionIds": [
         "3782668714"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3725497089": {
       "workshopId": "3725497089",
@@ -98,7 +104,8 @@
       "collectionIds": [
         "3782668714"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3780683663": {
       "workshopId": "3780683663",
@@ -112,7 +119,8 @@
       "collectionIds": [
         "3782668714"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2447729538": {
       "workshopId": "2447729538",
@@ -126,7 +134,8 @@
       "collectionIds": [
         "3782668714"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3776055648": {
       "workshopId": "3776055648",
@@ -140,7 +149,8 @@
       "collectionIds": [
         "3782668714"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3739256725": {
       "workshopId": "3739256725",
@@ -154,7 +164,8 @@
       "collectionIds": [
         "3782668714"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3773985930": {
       "workshopId": "3773985930",
@@ -168,7 +179,8 @@
       "collectionIds": [
         "3782668714"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3778386398": {
       "workshopId": "3778386398",
@@ -182,7 +194,8 @@
       "collectionIds": [
         "3782668714"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3770149036": {
       "workshopId": "3770149036",
@@ -196,7 +209,8 @@
       "collectionIds": [
         "3782668714"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3753700423": {
       "workshopId": "3753700423",
@@ -210,7 +224,8 @@
       "collectionIds": [
         "3782668714"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3734639991": {
       "workshopId": "3734639991",
@@ -224,7 +239,8 @@
       "collectionIds": [
         "3782668714"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3778511497": {
       "workshopId": "3778511497",
@@ -238,7 +254,8 @@
       "collectionIds": [
         "3782668714"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3290232938": {
       "workshopId": "3290232938",
@@ -252,7 +269,8 @@
       "collectionIds": [
         "3782668714"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3579640010": {
       "workshopId": "3579640010",
@@ -266,7 +284,8 @@
       "collectionIds": [
         "3782668714"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3171167894": {
       "workshopId": "3171167894",
@@ -281,7 +300,8 @@
         "3782668714",
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3077900375": {
       "workshopId": "3077900375",
@@ -294,7 +314,9 @@
       "error": "",
       "collectionIds": [
         "3782727681"
-      ]
+      ],
+      "disabledModIds": [],
+      "enabled": true
     },
     "2896041179": {
       "workshopId": "2896041179",
@@ -307,7 +329,9 @@
       "error": "",
       "collectionIds": [
         "3782727681"
-      ]
+      ],
+      "disabledModIds": [],
+      "enabled": true
     },
     "3624971238": {
       "workshopId": "3624971238",
@@ -321,7 +345,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2757712197": {
       "workshopId": "2757712197",
@@ -336,7 +361,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3423424077": {
       "workshopId": "3423424077",
@@ -350,7 +376,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3402491515": {
       "workshopId": "3402491515",
@@ -364,7 +391,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3330403100": {
       "workshopId": "3330403100",
@@ -378,7 +406,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3732534934": {
       "workshopId": "3732534934",
@@ -393,7 +422,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3670064951": {
       "workshopId": "3670064951",
@@ -407,7 +437,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2932547723": {
       "workshopId": "2932547723",
@@ -421,7 +452,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3088951320": {
       "workshopId": "3088951320",
@@ -435,7 +467,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3001592312": {
       "workshopId": "3001592312",
@@ -449,7 +482,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3073430075": {
       "workshopId": "3073430075",
@@ -463,7 +497,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2969343830": {
       "workshopId": "2969343830",
@@ -477,7 +512,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3152529790": {
       "workshopId": "3152529790",
@@ -492,7 +528,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3287727378": {
       "workshopId": "3287727378",
@@ -507,7 +544,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2962175696": {
       "workshopId": "2962175696",
@@ -521,7 +559,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2642541073": {
       "workshopId": "2642541073",
@@ -535,7 +574,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2409333430": {
       "workshopId": "2409333430",
@@ -549,7 +589,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3504401781": {
       "workshopId": "3504401781",
@@ -563,7 +604,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3770890864": {
       "workshopId": "3770890864",
@@ -577,7 +619,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3008795514": {
       "workshopId": "3008795514",
@@ -591,7 +634,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3539691958": {
       "workshopId": "3539691958",
@@ -605,7 +649,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3366300557": {
       "workshopId": "3366300557",
@@ -619,7 +664,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2942793445": {
       "workshopId": "2942793445",
@@ -633,7 +679,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2952802178": {
       "workshopId": "2952802178",
@@ -647,7 +694,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3110913021": {
       "workshopId": "3110913021",
@@ -661,7 +709,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3292659291": {
       "workshopId": "3292659291",
@@ -675,7 +724,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3570973322": {
       "workshopId": "3570973322",
@@ -689,7 +739,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2932549988": {
       "workshopId": "2932549988",
@@ -703,7 +754,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2886833398": {
       "workshopId": "2886833398",
@@ -717,7 +769,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3034636011": {
       "workshopId": "3034636011",
@@ -731,7 +784,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3435796523": {
       "workshopId": "3435796523",
@@ -745,7 +799,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2886832936": {
       "workshopId": "2886832936",
@@ -759,7 +814,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3052360250": {
       "workshopId": "3052360250",
@@ -773,7 +829,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3779315249": {
       "workshopId": "3779315249",
@@ -787,7 +844,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3110911330": {
       "workshopId": "3110911330",
@@ -801,7 +859,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3196180339": {
       "workshopId": "3196180339",
@@ -815,7 +874,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3226885926": {
       "workshopId": "3226885926",
@@ -829,7 +889,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2566953935": {
       "workshopId": "2566953935",
@@ -843,7 +904,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2870394916": {
       "workshopId": "2870394916",
@@ -861,7 +923,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3428008364": {
       "workshopId": "3428008364",
@@ -875,7 +938,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3413706334": {
       "workshopId": "3413706334",
@@ -889,7 +953,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3418253716": {
       "workshopId": "3418253716",
@@ -903,7 +968,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3330401526": {
       "workshopId": "3330401526",
@@ -917,7 +983,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3614034284": {
       "workshopId": "3614034284",
@@ -932,7 +999,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3413704851": {
       "workshopId": "3413704851",
@@ -946,7 +1014,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3418252689": {
       "workshopId": "3418252689",
@@ -960,7 +1029,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3601417745": {
       "workshopId": "3601417745",
@@ -974,7 +1044,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2805630347": {
       "workshopId": "2805630347",
@@ -988,7 +1059,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3409287192": {
       "workshopId": "3409287192",
@@ -1002,7 +1074,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3684254299": {
       "workshopId": "3684254299",
@@ -1016,7 +1089,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3171184800": {
       "workshopId": "3171184800",
@@ -1030,7 +1104,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3592777775": {
       "workshopId": "3592777775",
@@ -1044,7 +1119,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3596903773": {
       "workshopId": "3596903773",
@@ -1058,7 +1134,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2811383142": {
       "workshopId": "2811383142",
@@ -1072,7 +1149,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3320947974": {
       "workshopId": "3320947974",
@@ -1087,7 +1165,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2618213077": {
       "workshopId": "2618213077",
@@ -1101,7 +1180,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2886832257": {
       "workshopId": "2886832257",
@@ -1116,7 +1196,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3248388837": {
       "workshopId": "3248388837",
@@ -1130,7 +1211,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3703948448": {
       "workshopId": "3703948448",
@@ -1144,7 +1226,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2799152995": {
       "workshopId": "2799152995",
@@ -1162,7 +1245,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3346905070": {
       "workshopId": "3346905070",
@@ -1176,7 +1260,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3730833846": {
       "workshopId": "3730833846",
@@ -1190,7 +1275,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3161951724": {
       "workshopId": "3161951724",
@@ -1204,7 +1290,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3490370700": {
       "workshopId": "3490370700",
@@ -1219,7 +1306,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2913633066": {
       "workshopId": "2913633066",
@@ -1233,7 +1321,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2873290424": {
       "workshopId": "2873290424",
@@ -1247,7 +1336,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3766571591": {
       "workshopId": "3766571591",
@@ -1261,7 +1351,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3756938756": {
       "workshopId": "3756938756",
@@ -1276,7 +1367,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2991201484": {
       "workshopId": "2991201484",
@@ -1290,7 +1382,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3761077099": {
       "workshopId": "3761077099",
@@ -1304,7 +1397,8 @@
       "collectionIds": [
         "3780135570"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3401134276": {
       "workshopId": "3401134276",
@@ -1318,7 +1412,8 @@
       "collectionIds": [
         "3780135570"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3577903007": {
       "workshopId": "3577903007",
@@ -1332,7 +1427,8 @@
       "collectionIds": [
         "3780135570"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3421271152": {
       "workshopId": "3421271152",
@@ -1351,7 +1447,8 @@
       "disabledModIds": [
         "1VCESTANDARDPre42",
         "1VCESTANDARDNOMP"
-      ]
+      ],
+      "enabled": true
     },
     "3728357493": {
       "workshopId": "3728357493",
@@ -1367,7 +1464,8 @@
       "collectionIds": [
         "3780135570"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "3484263516": {
       "workshopId": "3484263516",
@@ -1383,7 +1481,8 @@
       "collectionIds": [
         "3780135570"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2625625421": {
       "workshopId": "2625625421",
@@ -1397,7 +1496,8 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
     },
     "2478247379": {
       "workshopId": "2478247379",
@@ -1411,7 +1511,161 @@
       "collectionIds": [
         "3780139158"
       ],
-      "disabledModIds": []
+      "disabledModIds": [],
+      "enabled": true
+    },
+    "3360392628": {
+      "workshopId": "3360392628",
+      "name": "Map Mod Manager (41 and 42)",
+      "modIds": [
+        "mapmodmanager"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780135570"
+      ],
+      "disabledModIds": [],
+      "enabled": true
+    },
+    "3436537035": {
+      "workshopId": "3436537035",
+      "name": "[B42] Useful Barrels",
+      "modIds": [
+        "UsefulBarrelsMP"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3782668714"
+      ],
+      "disabledModIds": [],
+      "enabled": true
+    },
+    "3446510982": {
+      "workshopId": "3446510982",
+      "name": "Equip Clothing While Moving",
+      "modIds": [
+        "EquipClothingWhileMoving"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3782668714"
+      ],
+      "disabledModIds": [],
+      "enabled": true
+    },
+    "3576056135": {
+      "workshopId": "3576056135",
+      "name": "Better Generator Info",
+      "modIds": [
+        "BetterGeneratorInfo"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3782668714"
+      ],
+      "disabledModIds": [],
+      "enabled": true
+    },
+    "3436499337": {
+      "workshopId": "3436499337",
+      "name": "Vehicle Military Zones",
+      "modIds": [
+        "VMZNEW"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": [],
+      "enabled": true
+    },
+    "3740300378": {
+      "workshopId": "3740300378",
+      "name": "KI5 Mini-fixes",
+      "modIds": [
+        "KI5minifixes"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": [],
+      "enabled": true
+    },
+    "3457132019": {
+      "workshopId": "3457132019",
+      "name": "Specific Loot (KI5)",
+      "modIds": [
+        "SpecLoot"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3780139158"
+      ],
+      "disabledModIds": [],
+      "enabled": true
+    },
+    "3413150945": {
+      "workshopId": "3413150945",
+      "name": "More Damaged Objects [42MP]",
+      "modIds": [
+        "MoreDamagedObjects"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3782668714"
+      ],
+      "disabledModIds": [],
+      "enabled": true
+    },
+    "2793385743": {
+      "workshopId": "2793385743",
+      "name": "SSR: Quest System",
+      "modIds": [
+        "ssr-quests",
+        "ssr-quests-e1",
+        "ssr-quests-e2",
+        "ssr-quests-e3"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3782668714"
+      ],
+      "disabledModIds": [],
+      "enabled": true
+    },
+    "1178769629": {
+      "workshopId": "1178769629",
+      "name": "SSR: Core",
+      "modIds": [
+        "ssr-core"
+      ],
+      "maps": [],
+      "ok": true,
+      "error": "",
+      "collectionIds": [
+        "3782668714"
+      ],
+      "disabledModIds": [],
+      "enabled": true
     }
   },
   "collections": {
@@ -1439,8 +1693,15 @@
         "3778511497",
         "3290232938",
         "3579640010",
-        "3171167894"
-      ]
+        "3171167894",
+        "3436537035",
+        "3446510982",
+        "3576056135",
+        "3413150945",
+        "2793385743",
+        "1178769629"
+      ],
+      "enabled": true
     },
     "3782727681": {
       "id": "3782727681",
@@ -1449,7 +1710,8 @@
       "order": [
         "3077900375",
         "2896041179"
-      ]
+      ],
+      "enabled": true
     },
     "3780139158": {
       "id": "3780139158",
@@ -1527,8 +1789,12 @@
         "3756938756",
         "2991201484",
         "2625625421",
-        "2478247379"
-      ]
+        "2478247379",
+        "3436499337",
+        "3740300378",
+        "3457132019"
+      ],
+      "enabled": true
     },
     "3780135570": {
       "id": "3780135570",
@@ -1540,8 +1806,10 @@
         "3577903007",
         "3421271152",
         "3728357493",
-        "3484263516"
-      ]
+        "3484263516",
+        "3360392628"
+      ],
+      "enabled": false
     }
   },
   "collectionOrder": [

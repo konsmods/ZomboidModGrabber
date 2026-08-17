@@ -6,9 +6,58 @@ from scraper import scan_collection, ScrapeError
 app = Flask(__name__)
 
 
+@app.before_request
+def select_request_preset():
+    if not request.path.startswith("/api/"):
+        return None
+    try:
+        store.activate_preset(request.headers.get("X-Preset", store.DEFAULT_PRESET))
+    except store.PresetError as e:
+        return jsonify({"error": str(e)}), 404
+    return None
+
+
+@app.teardown_request
+def reset_request_preset(_error):
+    store.reset_preset()
+
+
 @app.get("/")
 def index():
     return render_template("index.html")
+
+
+@app.get("/api/presets")
+def get_presets():
+    return jsonify(store.presets_state())
+
+
+@app.post("/api/presets")
+def create_preset():
+    body = request.get_json(force=True, silent=True) or {}
+    try:
+        preset_id, data = store.create_preset(body.get("name", ""))
+    except store.PresetError as e:
+        return jsonify({"error": str(e)}), 400
+    return jsonify({**store.presets_state(), "id": preset_id, "data": data})
+
+
+@app.post("/api/presets/<preset_id>/select")
+def select_preset(preset_id):
+    try:
+        store.activate_preset(preset_id)
+    except store.PresetError as e:
+        return jsonify({"error": str(e)}), 404
+    return jsonify({**store.presets_state(), "data": store.load()})
+
+
+@app.delete("/api/presets/<preset_id>")
+def delete_preset(preset_id):
+    try:
+        store.delete_preset(preset_id)
+    except store.PresetError as e:
+        return jsonify({"error": str(e)}), 400
+    return jsonify({**store.presets_state(), "data": store.load()})
 
 
 @app.get("/api/mods")

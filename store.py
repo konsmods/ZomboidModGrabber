@@ -36,12 +36,121 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import threading
+from contextvars import ContextVar
 
 from scraper import canonical_collection_url, extract_collection_id, ScrapeError
 
 DATA_PATH = os.path.join(os.path.dirname(__file__), "data", "mods.json")
+PRESETS_DIR = os.path.join(os.path.dirname(DATA_PATH), "presets")
+PRESET_META_PATH = os.path.join(os.path.dirname(DATA_PATH), "presets.json")
+DEFAULT_PRESET = "default"
+_preset_id = ContextVar("preset_id", default=DEFAULT_PRESET)
 _lock = threading.Lock()
+
+
+class PresetError(ValueError):
+    pass
+
+
+def _preset_path(preset_id: str) -> str:
+    if preset_id == DEFAULT_PRESET:
+        return DATA_PATH
+    return os.path.join(PRESETS_DIR, f"{preset_id}.json")
+
+
+def _valid_preset_id(preset_id: str) -> bool:
+    return bool(re.fullmatch(r"[a-z0-9][a-z0-9_-]{0,39}", preset_id))
+
+
+def current_preset() -> str:
+    return _preset_id.get()
+
+
+def activate_preset(preset_id: str) -> None:
+    if not _valid_preset_id(preset_id):
+        raise PresetError("Invalid preset id.")
+    if preset_id != DEFAULT_PRESET and not os.path.isfile(_preset_path(preset_id)):
+        raise PresetError(f"Unknown preset: {preset_id}")
+    _preset_id.set(preset_id)
+
+
+def reset_preset() -> None:
+    _preset_id.set(DEFAULT_PRESET)
+
+
+def _preset_names() -> dict[str, str]:
+    if not os.path.exists(PRESET_META_PATH):
+        return {}
+    try:
+        with open(PRESET_META_PATH, "r", encoding="utf-8") as f:
+            names = json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return {}
+    return names if isinstance(names, dict) else {}
+
+
+def _write_preset_names(names: dict[str, str]) -> None:
+    os.makedirs(os.path.dirname(PRESET_META_PATH), exist_ok=True)
+    tmp_path = PRESET_META_PATH + ".tmp"
+    with open(tmp_path, "w", encoding="utf-8") as f:
+        json.dump(names, f, indent=2, ensure_ascii=False)
+    os.replace(tmp_path, PRESET_META_PATH)
+
+
+def list_presets() -> list[dict[str, str]]:
+    with _lock:
+        ids = [DEFAULT_PRESET]
+        if os.path.isdir(PRESETS_DIR):
+            ids.extend(
+                filename[:-5]
+                for filename in os.listdir(PRESETS_DIR)
+                if filename.endswith(".json")
+                and _valid_preset_id(filename[:-5])
+                and filename[:-5] != DEFAULT_PRESET
+            )
+        names = _preset_names()
+        return [
+            {"id": preset_id, "name": names.get(preset_id, "Default" if preset_id == DEFAULT_PRESET else preset_id)}
+            for preset_id in sorted(set(ids), key=lambda value: (value != DEFAULT_PRESET, value))
+        ]
+
+
+def presets_state() -> dict:
+    return {"presets": list_presets(), "active": current_preset()}
+
+
+def create_preset(name: str) -> tuple[str, dict]:
+    name = (name or "").strip()
+    preset_id = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")[:40]
+    if not preset_id or not _valid_preset_id(preset_id) or preset_id == DEFAULT_PRESET:
+        raise PresetError("Use a unique preset name other than 'default'.")
+    with _lock:
+        path = _preset_path(preset_id)
+        if os.path.exists(path):
+            raise PresetError("A preset with that name already exists.")
+        _save_path(_empty(), path)
+        names = _preset_names()
+        names[preset_id] = name
+        _write_preset_names(names)
+        _preset_id.set(preset_id)
+        return preset_id, _empty()
+
+
+def delete_preset(preset_id: str) -> None:
+    if preset_id == DEFAULT_PRESET:
+        raise PresetError("The default preset cannot be deleted.")
+    with _lock:
+        path = _preset_path(preset_id)
+        if not os.path.isfile(path):
+            raise PresetError(f"Unknown preset: {preset_id}")
+        os.remove(path)
+        names = _preset_names()
+        names.pop(preset_id, None)
+        _write_preset_names(names)
+        if current_preset() == preset_id:
+            _preset_id.set(DEFAULT_PRESET)
 
 
 def _empty():
@@ -95,9 +204,10 @@ def _migrate(data: dict) -> dict:
 
 
 def load() -> dict:
-    if not os.path.exists(DATA_PATH):
+    path = _preset_path(current_preset())
+    if not os.path.exists(path):
         return _empty()
-    with open(DATA_PATH, "r", encoding="utf-8") as f:
+    with open(path, "r", encoding="utf-8") as f:
         try:
             data = json.load(f)
         except json.JSONDecodeError:
@@ -111,15 +221,19 @@ def load() -> dict:
     return data
 
 
-def save(data: dict) -> None:
-    os.makedirs(os.path.dirname(DATA_PATH), exist_ok=True)
-    tmp_path = DATA_PATH + ".tmp"
+def _save_path(data: dict, path: str) -> None:
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    tmp_path = path + ".tmp"
     with open(tmp_path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
-    os.replace(tmp_path, DATA_PATH)
+    os.replace(tmp_path, path)
 
 
-def merge_scanned(collection_url: str, collection_name: str, scanned_mods) -> tuple[dict, list[str]]:
+def save(data: dict) -> None:
+    _save_path(data, _preset_path(current_preset()))
+
+
+def merge_scanned(collection_url: str, collection_name: str, scanned_mods) -> tuple[dict, list[str], list[str]]:
     """Merge freshly scanned mods into the store, grouped under their collection.
 
     Existing entries: name/modIds/maps/ok/error refreshed in place. New entries

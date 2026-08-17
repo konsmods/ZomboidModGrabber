@@ -12,10 +12,14 @@ const mapsOut = el("mapsOut");
 const mapsRow = el("mapsRow");
 const build42Toggle = el("build42Toggle");
 const clearBtn = el("clearBtn");
+const presetSelect = el("presetSelect");
+const newPresetBtn = el("newPresetBtn");
+const deletePresetBtn = el("deletePresetBtn");
 
 let state = { collectionOrder: [], collections: {}, mods: {} };
 let boxSortable = null;
 let modSortables = [];
+let currentPreset = localStorage.getItem("pz-mod-grabber.preset") || "default";
 
 const COLLAPSE_KEY = "pz-mod-grabber.collapsed";
 let collapsed = loadCollapsed();
@@ -38,10 +42,15 @@ function setStatus(msg, kind) {
   statusEl.className = "status" + (kind ? " " + kind : "");
 }
 
-async function api(path, opts) {
+async function api(path, opts = {}) {
+  const { headers: customHeaders = {}, ...requestOpts } = opts;
   const res = await fetch(path, {
-    headers: { "Content-Type": "application/json" },
-    ...opts,
+    ...requestOpts,
+    headers: {
+      "Content-Type": "application/json",
+      "X-Preset": currentPreset,
+      ...customHeaders,
+    },
   });
   const data = await res.json().catch(() => ({}));
   if (!res.ok) {
@@ -52,6 +61,89 @@ async function api(path, opts) {
 
 function collectionLabel(col) {
   return col.name || `Collection ${col.id}`;
+}
+
+function renderPresets(presets, active) {
+  presetSelect.innerHTML = "";
+  for (const preset of presets) {
+    const option = document.createElement("option");
+    option.value = preset.id;
+    option.textContent = preset.name;
+    presetSelect.appendChild(option);
+  }
+  presetSelect.value = active;
+  deletePresetBtn.disabled = active === "default";
+}
+
+async function loadPresets() {
+  try {
+    const result = await api("/api/presets");
+    if (!result.presets.some((preset) => preset.id === currentPreset)) {
+      rememberPreset("default");
+    }
+    renderPresets(result.presets, currentPreset);
+  } catch (e) {
+    if (currentPreset !== "default") {
+      rememberPreset("default");
+      const result = await api("/api/presets");
+      renderPresets(result.presets, currentPreset);
+      return;
+    }
+    throw e;
+  }
+}
+
+function rememberPreset(presetId) {
+  currentPreset = presetId;
+  localStorage.setItem("pz-mod-grabber.preset", presetId);
+}
+
+async function onSelectPreset(e) {
+  const presetId = e.target.value;
+  try {
+    const result = await api(`/api/presets/${encodeURIComponent(presetId)}/select`, { method: "POST" });
+    rememberPreset(presetId);
+    renderPresets(result.presets, result.active);
+    state = result.data;
+    render();
+    setStatus(`Switched to preset "${presetId}".`);
+  } catch (error) {
+    presetSelect.value = currentPreset;
+    setStatus(error.message, "error");
+  }
+}
+
+async function onNewPreset() {
+  const name = prompt("Name for the new server preset:");
+  if (!name || !name.trim()) return;
+  try {
+    const result = await api("/api/presets", {
+      method: "POST",
+      body: JSON.stringify({ name: name.trim() }),
+    });
+    rememberPreset(result.active);
+    renderPresets(result.presets, result.active);
+    state = result.data;
+    render();
+    setStatus(`Created preset "${name.trim()}".`);
+  } catch (error) {
+    setStatus(error.message, "error");
+  }
+}
+
+async function onDeletePreset() {
+  if (currentPreset === "default") return;
+  if (!confirm(`Delete preset "${currentPreset}" and all its saved mods? This can't be undone.`)) return;
+  try {
+    const result = await api(`/api/presets/${encodeURIComponent(currentPreset)}`, { method: "DELETE" });
+    rememberPreset(result.active);
+    renderPresets(result.presets, result.active);
+    state = result.data;
+    render();
+    setStatus("Preset deleted.");
+  } catch (error) {
+    setStatus(error.message, "error");
+  }
 }
 
 function render() {
@@ -416,9 +508,13 @@ async function init() {
   urlInput.addEventListener("keydown", (e) => { if (e.key === "Enter") onScan(); });
   build42Toggle.addEventListener("change", buildOutputs);
   clearBtn.addEventListener("click", onClearAll);
+  presetSelect.addEventListener("change", onSelectPreset);
+  newPresetBtn.addEventListener("click", onNewPreset);
+  deletePresetBtn.addEventListener("click", onDeletePreset);
   setupCopyButtons();
 
   try {
+    await loadPresets();
     state = await api("/api/mods");
   } catch (e) {
     setStatus(e.message, "error");

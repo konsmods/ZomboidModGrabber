@@ -38,6 +38,37 @@ header .sub {
   font-size: 14px;
 }
 
+.preset-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.preset-bar label {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+#presetSelect {
+  min-width: 180px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 13px;
+}
+#presetSelect:focus { outline: 2px solid var(--accent); }
+.secondary-btn {
+  background: var(--panel-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  font-size: 13px;
+}
+.secondary-btn:hover { border-color: var(--accent); }
+
 .scan-box {
   display: flex;
   gap: 8px;

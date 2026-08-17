@@ -13,6 +13,13 @@
     <p class="sub">Scan a Steam Workshop collection, keep a maintainable mod list, reorder it, copy it into your server config.</p>
   </header>
 
+  <section class="preset-bar">
+    <label for="presetSelect">Preset</label>
+    <select id="presetSelect"></select>
+    <button id="newPresetBtn" class="secondary-btn">New preset</button>
+    <button id="deletePresetBtn" class="danger-link">Delete preset</button>
+  </section>
+
   <section class="scan-box">
     <input id="collectionUrl" type="text" placeholder="Collection URL or just the numeric id, e.g. https://steamcommunity.com/sharedfiles/filedetails/?id=XXXXXXXXX" autocomplete="off">
     <button id="scanBtn">Scan collection</button>
