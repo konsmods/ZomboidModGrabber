@@ -130,7 +130,11 @@ def _get_collection_details(collection_id: str, session: requests.Session) -> tu
     ids = _dedupe(c["publishedfileid"] for c in children if "publishedfileid" in c)
     if not ids:
         raise ScrapeError("That collection doesn't seem to contain any items.")
-    return ids, entry.get("title", "")
+
+    # GetCollectionDetails doesn't include a title, but a collection is itself
+    # a published file, so fetch its title via GetPublishedFileDetails.
+    title = (_get_file_details([collection_id], session).get(collection_id) or {}).get("title", "")
+    return ids, title
 
 
 def _get_file_details(ids: list[str], session: requests.Session) -> dict[str, dict]:
